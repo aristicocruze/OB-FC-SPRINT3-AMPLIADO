@@ -1,0 +1,127 @@
+.login-page {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}
+
+/* Left container */
+.left {
+  display: flex;
+  flex-direction: column;
+  flex: 3;
+  align-items: left;
+  justify-content: center;
+  background-color: #fff;
+}
+
+/* Title */
+.login-title {
+  display: flex;
+  align-items: center;
+  margin-left: 100px;
+}
+
+.login-title > p {
+  font-weight: 400;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 28px;
+  margin-right: 5px;
+}
+
+.login-title > h1 {
+  color: #32d4a4;
+  font-size: 24px;
+  font-weight: 800;
+}
+/* End title */
+
+/* Login form */
+form {
+  margin: 50px 100px 0 100px;
+  display: flex;
+  align-items: left;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+form > label {
+  font-weight: 700;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 16px;
+  margin-bottom: 10px;
+}
+
+form > input {
+  border-style: none;
+  background-color: #f8f8f9;
+  border-radius: 8px;
+  margin-bottom: 50px;
+  padding: 12px 15px;
+  width: 450px;
+  height: 30px;
+  color: black;
+  font-size: 14px;
+  font-family: "Raleway", sans-serif;
+}
+
+.remember-pass {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  margin-bottom: 10px;
+  width: 80%;
+}
+
+.remember-pass > label {
+  flex: 1;
+  font-family: "Raleway";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0px;
+  text-align: left;
+}
+
+.remember-pass > p {
+  flex: 1;
+  font-family: "Raleway";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 16px;
+  letter-spacing: 0px;
+  text-align: left;
+  color: #32d4a4;
+}
+
+form > button {
+  background-color: #32d4a4;
+  border-style: none;
+  border-radius: 8px;
+  padding: 5px 14px 5px 10px;
+  height: 50px;
+  width: 70%;
+  color: #fff;
+  margin-top: 25px;
+  font-family: "Raleway";
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: 0em;
+  cursor: pointer;
+}
+/*End login form */
+
+/*Right panel*/
+.right {
+  flex: 7;
+  background-image: url(../../images/login.jpeg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
