@@ -1,0 +1,54 @@
+.data-table {
+  width: 100%;
+  height: fit-content;
+  margin: 100px 100px 100px 0;
+  display: flex;
+  flex-direction: column;
+  background-color: tomato;
+}
+
+/*Top of the table  for search and button*/
+.top-dataTable {
+  height: 60px;
+  width: 100%;
+  background-color: green;
+}
+
+table {
+  background-color: #fff;
+  border-collapse: collapse;
+  width: 85%;
+  border-radius: 25px;
+  margin-left: 50px;
+}
+
+td {
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  padding: 10px 0 10px 0;
+  color: rgba(128, 128, 128, 0.781);
+  font-weight: 700;
+  font-size: 11px;
+  font-style: normal;
+  border-bottom: 1px solid #ddd;
+}
+
+.tag-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tag {
+  background-color: #32d5a4;
+  padding: 5px 10px 5px 10px;
+  color: #fff;
+  border-radius: 6px;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 10px;
+  cursor: pointer;
+  text-align: center;
+}
