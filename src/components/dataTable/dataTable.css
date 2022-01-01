@@ -4,14 +4,39 @@
   margin: 100px 100px 100px 0;
   display: flex;
   flex-direction: column;
-  background-color: tomato;
 }
 
 /*Top of the table  for search and button*/
 .top-dataTable {
   height: 60px;
   width: 100%;
-  background-color: green;
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.top-dataTable > label {
+  margin: 0 5px 0 60px;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 21px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.top-dataTable > input {
+  padding: 8px;
+  background-color: #e6e6ea;
+  border-style: none;
+  border-radius: 8px;
+  height: 25px;
+  width: 343px;
+  margin-left: 25px;
+}
+
+.top-dataTable > input:focus {
+  outline: none;
 }
 
 table {
