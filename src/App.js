@@ -1,11 +1,9 @@
-import DataTable from "./components/dataTable/DataTable";
-import Header from "./components/header/Header";
+import LoginPage from "./components/login/LoginPage";
 
 function App() {
   return (
     <div>
-      <Header />
-      <DataTable />
+      <LoginPage />
     </div>
   );
 }
