@@ -125,3 +125,39 @@ form > button {
   background-position: center;
   background-size: cover;
 }
+
+/*Responsive*/
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  body {
+    background-color: #fff;
+  }
+
+  form > button {
+    width: 470px;
+  }
+
+  .right {
+    display: none;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .left {
+    flex: 4;
+  }
+
+  .right {
+    display: flex;
+    flex: 7;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .right {
+    display: flex;
+  }
+}

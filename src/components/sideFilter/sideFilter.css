@@ -1,0 +1,20 @@
+.filter-wrapper {
+  background-color: #fff;
+  margin: 150px 50px 0 0;
+  height: 600px;
+  width: 330px;
+  text-align: left;
+  border-radius: 8px;
+}
+
+.filter-title {
+  font-family: "Raleway";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 21px;
+  letter-spacing: 0em;
+  text-align: left;
+  padding-top: 25px;
+  padding-left: 25px;
+}

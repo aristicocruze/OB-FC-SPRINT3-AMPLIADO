@@ -79,7 +79,9 @@ function DataTable() {
                   <td>{m.Pais}</td>
                   <td>{m.Telefono}</td>
                   <td>{m.Email}</td>
-                  <td className="tag-container">{m.Etiquetas}</td>
+                  <div className="tag-container">
+                    <td className="tag">{m.Etiquetas}</td>
+                  </div>
                 </tr>
               ))}
           </tbody>
