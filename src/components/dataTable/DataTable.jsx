@@ -27,8 +27,8 @@ function DataTable() {
   return (
     <div className="data-table">
       <div className="top-dataTable">
-        {/* Search input */}
-        <label>Alumnos</label>
+        
+        <label>Candidatos</label>
         <input
           type="text"
           placeholder="Buscar por Nombre, Email o Palabra clave..."
@@ -36,8 +36,9 @@ function DataTable() {
             setSearch(e.target.value);
           }}
         />
+        <button> <i class="fas fa-plus"></i> Añadir alumnos</button>
       </div>
-      <div className="bottom-dataTable">
+      <div className="bottom-dataTable scroll">
         <table class="table table-sortable">
           <thead>
             <tr>

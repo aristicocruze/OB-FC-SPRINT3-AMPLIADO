@@ -1,9 +1,10 @@
-import LoginPage from "./components/login/LoginPage";
+
+import Students from "./pages/students/Students";
 
 function App() {
   return (
     <div>
-      <LoginPage />
+      <Students/>
     </div>
   );
 }
