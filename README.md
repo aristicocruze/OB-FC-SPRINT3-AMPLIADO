@@ -1,2 +1,1 @@
-# Login page made with ReactJS
-
+# First commit extended design
