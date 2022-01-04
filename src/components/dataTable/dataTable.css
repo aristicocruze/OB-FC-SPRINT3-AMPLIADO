@@ -13,7 +13,11 @@ div.scroll {
   overflow-x: hidden;
   overflow-y: auto;
   text-align: center;
-  
+}
+
+/* Hide scroll bar */
+.scroll::-webkit-scrollbar {
+  display: none;
 }
 
 /*Top of the table  for search and button*/
@@ -22,7 +26,7 @@ div.scroll {
   width: 100%;
   display: flex;
   align-items: center;
-  margin-bottom: 5px;
+  margin-bottom: 25px;
   position: relative;
 }
 
