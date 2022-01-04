@@ -6,6 +6,7 @@
 
 /* Left container */
 .left {
+  position: relative;
   display: flex;
   flex-direction: column;
   flex: 3;
@@ -116,6 +117,12 @@ form > button {
   cursor: pointer;
 }
 /*End login form */
+
+
+footer {
+  margin: 100px 0 0 100px;
+  color: #A5A8B3;
+}
 
 /*Right panel*/
 .right {

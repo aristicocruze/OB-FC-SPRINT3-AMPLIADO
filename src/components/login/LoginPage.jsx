@@ -21,6 +21,11 @@ function LoginPage() {
           </div>
           <button type="submit">Iniciar Sesión</button>
         </form>
+        <footer>
+          <p>Copyright © 2021 Open Bootcamp SL, Imagina Group</p>
+          <p>Todos los derechos reservados.</p>
+          <p>Política de Privacidad</p>
+        </footer>
       </div>
       <div className="right"></div>
     </div>
