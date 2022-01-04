@@ -10,8 +10,10 @@ function Students() {
   return (
     <div className="students-container">
       <SideNavBar />
-      <TopSearch />
-      <DataTable />
+      <div className="inside-content">
+        <TopSearch />
+        <DataTable />
+      </div>
     </div>
   );
 }

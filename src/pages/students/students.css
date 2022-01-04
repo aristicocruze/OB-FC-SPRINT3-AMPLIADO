@@ -1,3 +1,8 @@
 .students-container {
-  display: flex;
+  display: inline-block;
+  position: relative;
+}
+
+.inside-content {
+  margin-left: 250px;
 }
