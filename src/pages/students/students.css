@@ -6,3 +6,7 @@
 .inside-content {
   margin-left: 250px;
 }
+
+.table-wrapper {
+  display: flex;
+}

@@ -1,7 +1,7 @@
 .data-table {
   width: 80%;
   height: 82vh;
-  margin: 50px 100px 0 0;
+  margin: 50px 5px 0 0;
   display: flex;
   flex-direction: column;
 }
