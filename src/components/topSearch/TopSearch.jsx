@@ -12,7 +12,12 @@ function TopSearch() {
           placeholder="Buscar por Candidatos por Nombre, DNI, etc..."
         />
       </div>
-      <div className="top-container-profile">profile</div>
+      <div className="top-container-profile">
+        <p> NA </p>
+        <h4>
+          UserName <i className="fas fa-chevron-down"></i>
+        </h4>
+      </div>
     </div>
   );
 }
