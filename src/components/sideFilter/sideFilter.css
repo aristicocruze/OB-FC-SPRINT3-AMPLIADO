@@ -1,17 +1,19 @@
 .filter-wrapper {
   z-index: 10;
-  background-color: rgba(173, 216, 230, 0.315);
+  border-left: 1px solid rgba(211, 211, 211, 0.472);
   height: 90vh;
   width: 330px;
   text-align: left;
+  padding-left: 10px;
 }
+
+/*title */
 
 .filter-title {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding-top: 50px;
-  padding-left: 10px;
 }
 
 .filter-title > h1 {
@@ -27,4 +29,62 @@
 .filter-title > i {
   padding-right: 20px;
   color: #32d4a4;
+}
+
+/* Technologies */
+
+.filter-technologies {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.filter-technologies > h1 {
+  font-family: "Raleway";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: -0.01em;
+  text-align: left;
+  margin: 25px 0 10px 0;
+}
+
+.technologies-input {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.technologies-input > input {
+  height: 40px;
+  width: 270px;
+  left: 0px;
+  top: 28px;
+  border-radius: 8px;
+  padding: 12px, 15px, 12px, 15px;
+  border-style: none;
+  background-color: #f8f8f9;
+  display: inline-block;
+}
+
+.technologies-input > input::placeholder {
+  color: rgb(194, 192, 192);
+  font-family: "Raleway";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 22px;
+  letter-spacing: 0.005em;
+  text-align: left;
+  padding-left: 10px;
+}
+
+/*Down arrow icon in technologies input*/
+.filter-technologies i {
+  position: absolute;
+  right: 0;
+  margin-right: 50px;
+  color: rgb(124, 123, 123);
+  font-size: 13px;
 }
