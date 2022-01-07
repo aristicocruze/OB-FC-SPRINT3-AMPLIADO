@@ -1,11 +1,21 @@
 import MockData from "../../MOCK_DATA.json";
 import "./dataTable.css";
 import { useState } from "react";
+import StudentModal from "../addStudentModal/StudentModal";
 
 function DataTable() {
   const [data, setData] = useState(MockData);
   const [search, setSearch] = useState("");
   const [order, setOrder] = useState("ASC");
+  const [handleShow, setHandleShow] = useState(false);
+
+  const showModal = () => {
+    setHandleShow(true);
+  };
+
+  const hideModal = () => {
+    setHandleShow(false);
+  };
 
   const sorting = col => {
     if (order === "ASC") {
@@ -36,8 +46,10 @@ function DataTable() {
             setSearch(e.target.value);
           }}
         />
-        <button>
-          {" "}
+
+        <StudentModal show={handleShow} handleClose={hideModal} />
+
+        <button onClick={showModal}>
           <i class="fas fa-plus"></i> Añadir alumnos
         </button>
       </div>
