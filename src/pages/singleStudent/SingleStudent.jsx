@@ -205,12 +205,47 @@ function SingleStudent() {
                   toggleState === 3 ? "content  active-content" : "content"
                 }
               >
+                <button className="add-btn">
+                  <i class="fas fa-plus"></i> Añadir proceso
+                </button>
                 <div className="offers-wrapper">
                   <div className="offer-container">
-                    <h1>Título Oferta</h1>
-                    <p>7 candidatos</p>
-                    <p>Fecha plazo</p>
-                    <p>PDTE. Entrevista</p>
+                    <p className="offer-title">Título Oferta</p>
+                    <p className="offer-title">7 candidatos</p>
+                    <p className="offer-date">Fecha plazo</p>
+                    <p className="offer-status">PDTE. Entrevista</p>
+                  </div>
+                </div>
+                <div className="offers-wrapper">
+                  <div className="offer-container">
+                    <p className="offer-title">Título Oferta</p>
+                    <p className="offer-title">7 candidatos</p>
+                    <p className="offer-date">Fecha plazo</p>
+                    <p className="offer-status entrevistado">Entrevistado</p>
+                  </div>
+                </div>
+                <div className="offers-wrapper">
+                  <div className="offer-container">
+                    <p className="offer-title">Título Oferta</p>
+                    <p className="offer-title">7 candidatos</p>
+                    <p className="offer-date">Fecha plazo</p>
+                    <p className="offer-status entrevistado">Entrevistado</p>
+                  </div>
+                </div>
+                <div className="offers-wrapper">
+                  <div className="offer-container">
+                    <p className="offer-title">Título Oferta</p>
+                    <p className="offer-title">7 candidatos</p>
+                    <p className="offer-date">Fecha plazo</p>
+                    <p className="offer-status contratado">Contratado</p>
+                  </div>
+                </div>
+                <div className="offers-wrapper">
+                  <div className="offer-container">
+                    <p className="offer-title">Título Oferta</p>
+                    <p className="offer-title">7 candidatos</p>
+                    <p className="offer-date">Fecha plazo</p>
+                    <p className="offer-status">PDTE. Entrevista</p>
                   </div>
                 </div>
               </div>

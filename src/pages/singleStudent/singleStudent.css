@@ -196,7 +196,7 @@ button {
 }
 .content {
   background: white;
-  padding: 25px 0 0 0px;
+  padding: 25px 0 0 25px;
   width: 90%;
   height: 80%;
   display: none;
@@ -218,16 +218,95 @@ button {
 .offers-wrapper {
   display: flex;
   align-items: center;
-  flex-direction: column;
-}
 
-.offer-container {
-  display: flex;
-  align-items: center;
-  flex-direction: row;
   height: 60px;
   width: 100%;
   border-radius: 11px;
-  background-color: #f2f3f4;
+  background-color: #f4f2f2;
   margin-left: 20px;
+  margin-bottom: 10px;
+}
+
+.add-btn {
+  margin: 0 0 40px 20px;
+  height: 40px;
+  width: 164px;
+  border-radius: 8px;
+  padding: 5px, 14px, 5px, 10px;
+  background-color: #fff;
+  border: 1px solid #e6e6ea;
+
+  font-family: "Raleway";
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: 0em;
+  text-align: center;
+
+  cursor: pointer;
+}
+
+.add-btn > i {
+  margin-right: 10px;
+}
+
+.offer-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5px 0 5px;
+}
+
+.offer-title {
+  font-family: "Raleway";
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 18px;
+  letter-spacing: 0px;
+  text-align: left;
+}
+
+.offer-date {
+  font-family: "Raleway";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 14px;
+  letter-spacing: 0px;
+  text-align: left;
+  color: #8c909c;
+}
+
+.offer-status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 22px;
+  width: 125px;
+  left: 2px;
+  top: 0px;
+  border-radius: 40px;
+  padding: 5px;
+  background-color: #3684fa;
+  color: #fff;
+
+  font-family: "Raleway";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 14px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.entrevistado {
+  background-color: #3fcbf8;
+}
+
+.contratado {
+  background-color: #36e4a6;
 }
