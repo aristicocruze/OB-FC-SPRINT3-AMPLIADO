@@ -1,4 +1,5 @@
 import "./loginPage.css";
+import { Link } from "react-router-dom";
 
 function LoginPage() {
   return (
@@ -19,7 +20,11 @@ function LoginPage() {
             </label>
             <p>He olvidado la contraseña</p>
           </div>
-          <button type="submit">Iniciar Sesión</button>
+          <Link to="students">
+            <button type="submit" className="login-btn">
+              Iniciar Sesión
+            </button>
+          </Link>
         </form>
         <footer>
           <p>Copyright © 2021 Open Bootcamp SL, Imagina Group</p>

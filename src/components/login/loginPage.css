@@ -99,7 +99,7 @@ form > input {
   color: #32d4a4;
 }
 
-form > button {
+.login-btn {
   background-color: #32d4a4;
   border-style: none;
   border-radius: 8px;
@@ -118,10 +118,9 @@ form > button {
 }
 /*End login form */
 
-
 footer {
   margin: 100px 0 0 100px;
-  color: #A5A8B3;
+  color: #a5a8b3;
 }
 
 /*Right panel*/
