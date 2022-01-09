@@ -2,6 +2,7 @@ import "./singleStudent.css";
 import SideNavBar from "../../components/sideNavBar/SideNavBar";
 import TopSearch from "../../components/topSearch/TopSearch";
 import PageRoute from "../../components/pageRoute/PageRoute";
+import StudentInformation from "../../components/studentInformation/StudentInformation";
 
 function SingleStudent() {
   return (
@@ -12,6 +13,7 @@ function SingleStudent() {
         <PageRoute menuName={"Candidatos"} studentName={"Nombre Apellido"} />
         <div className="table-wrapper">
           <div className="student-left">
+            <StudentInformation />
             <form>
               <label className="form-label">Nombre y Apellidos</label>
               <input
@@ -114,6 +116,17 @@ function SingleStudent() {
                     <option>Desempleado</option>
                   </select>
                 </div>
+              </div>
+              {/* Documento CV */}
+              <label className="form-label split-label">Documento CV</label>
+              <div className="btn-container">
+                <button className="btn">
+                  <i class="fas fa-cloud-upload-alt btn-icons"></i> Subir de
+                  nuevo
+                </button>
+                <button className="btn delete-btn">
+                  <i class="far fa-trash-alt btn-icons"></i> Borrar
+                </button>
               </div>
             </form>
           </div>

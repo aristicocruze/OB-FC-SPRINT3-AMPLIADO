@@ -9,7 +9,7 @@
 
 .table-wrapper {
   display: flex;
-  height: 85vh;
+  height: 75vh;
 }
 
 .student-left {
@@ -24,7 +24,7 @@
 /* Form styling */
 
 form {
-  margin: 50px;
+  margin: 50px 50px 0 50px;
   display: flex;
   flex-direction: column;
 }
@@ -36,7 +36,6 @@ form {
 
 .form-left {
   flex: 1;
-  height: 500px;
 }
 
 .form-right {
@@ -88,8 +87,8 @@ form {
 
 /*LinkedIn input*/
 .link-container {
+  position: relative;
   display: flex;
-  position: fixed;
   align-items: center;
 }
 
@@ -97,5 +96,41 @@ form {
   position: absolute;
   display: flex;
   right: 0;
+  margin-right: 15px;
   color: #8c909c;
+}
+
+/*Buttons*/
+.btn {
+  height: 40px;
+  width: 163px;
+  margin-right: 15px;
+  border-radius: 8px;
+  padding: 5px, 14px, 5px, 10px;
+  background: #a5a8b3;
+  border-style: none;
+  /*Btn text*/
+  font-family: "Raleway";
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: 0em;
+  text-align: center;
+  cursor: pointer;
+  color: #fff;
+}
+
+.delete-btn {
+  width: 100px;
+  background: transparent;
+  color: #121625;
+  border: 1px solid #e6e6ea;
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+
+/*Button icons*/
+.btn-icons {
+  margin-right: 5px;
 }
