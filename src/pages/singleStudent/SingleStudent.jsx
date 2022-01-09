@@ -1,10 +1,17 @@
 import "./singleStudent.css";
+import { useState } from "react";
 import SideNavBar from "../../components/sideNavBar/SideNavBar";
 import TopSearch from "../../components/topSearch/TopSearch";
 import PageRoute from "../../components/pageRoute/PageRoute";
 import StudentInformation from "../../components/studentInformation/StudentInformation";
 
 function SingleStudent() {
+  const [toggleState, setToggleState] = useState(1);
+
+  const toggleTab = index => {
+    setToggleState(index);
+  };
+
   return (
     <div className="students-container">
       <SideNavBar />
@@ -130,7 +137,85 @@ function SingleStudent() {
               </div>
             </form>
           </div>
-          <div className="student-right">tabs</div>
+          <div className="student-right">
+            <div className="bloc-tabs">
+              <button
+                className={toggleState === 1 ? "tabs active-tabs" : "tabs"}
+                onClick={() => toggleTab(1)}
+              >
+                Habilidades
+              </button>
+              <button
+                className={toggleState === 2 ? "tabs active-tabs" : "tabs"}
+                onClick={() => toggleTab(2)}
+              >
+                Currículum Vitae
+              </button>
+              <button
+                className={toggleState === 3 ? "tabs active-tabs" : "tabs"}
+                onClick={() => toggleTab(3)}
+              >
+                Procesos
+              </button>
+            </div>
+
+            <div className="content-tabs">
+              <div
+                className={
+                  toggleState === 1 ? "content  active-content" : "content"
+                }
+              >
+                {/* Tecnologías */}
+                <label className="form-label split-label">Tecnologías</label>
+                <input
+                  className="form-input form-split-input"
+                  type="text"
+                  name=""
+                  id=""
+                  placeholder="Escribe para buscar...."
+                />
+
+                {/* Idiomas */}
+                <label className="form-label split-label">Idiomas</label>
+                <input
+                  className="form-input form-split-input"
+                  type="text"
+                  name=""
+                  id=""
+                  placeholder="Escribe para buscar...."
+                />
+              </div>
+
+              <div
+                className={
+                  toggleState === 2 ? "content  active-content" : "content"
+                }
+              >
+                <object
+                  data={require("../../../src/CV.pdf")}
+                  type="application/pdf"
+                  width="100%"
+                  height="750px"
+                  aria-labelledby="label1"
+                ></object>
+              </div>
+
+              <div
+                className={
+                  toggleState === 3 ? "content  active-content" : "content"
+                }
+              >
+                <div className="offers-wrapper">
+                  <div className="offer-container">
+                    <h1>Título Oferta</h1>
+                    <p>7 candidatos</p>
+                    <p>Fecha plazo</p>
+                    <p>PDTE. Entrevista</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
