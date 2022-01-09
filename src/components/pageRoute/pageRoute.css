@@ -1,0 +1,32 @@
+.pageRoute {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  border-bottom: 1px solid #ddd;
+}
+
+.menuName {
+  font-family: "Raleway";
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 18px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #070f3066;
+  margin: 0 15px 0 15px;
+}
+
+.menuName > i {
+  margin-left: 10px;
+}
+
+.studentName {
+  font-family: "Raleway";
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 18px;
+  letter-spacing: 0em;
+  text-align: left;
+}

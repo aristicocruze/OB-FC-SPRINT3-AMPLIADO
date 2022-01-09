@@ -1,0 +1,101 @@
+.students-container {
+  display: block;
+  position: relative;
+}
+
+.inside-content {
+  margin-left: 250px;
+}
+
+.table-wrapper {
+  display: flex;
+  height: 85vh;
+}
+
+.student-left {
+  flex: 4;
+}
+
+.student-right {
+  flex: 3;
+  background-color: aliceblue;
+}
+
+/* Form styling */
+
+form {
+  margin: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-wrapper {
+  display: flex;
+  margin: 30px 0 30px 0;
+}
+
+.form-left {
+  flex: 1;
+  height: 500px;
+}
+
+.form-right {
+  flex: 1;
+  padding-left: 50px;
+}
+
+.form-label {
+  font-family: "Raleway";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: -0.01em;
+  text-align: left;
+}
+
+.form-input {
+  width: 935px;
+  height: 40px;
+  background-color: #f8f8f9;
+  border-radius: 8px;
+  border-style: none;
+  padding-left: 15px;
+}
+
+.form-split-input {
+  width: 430px;
+}
+
+.split-label {
+  margin: 15px 0 15px 0;
+}
+
+.form-select {
+  width: 445px;
+}
+
+.form-input::placeholder {
+  font-family: "Raleway";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 22px;
+  letter-spacing: 0.005em;
+  text-align: left;
+  color: #121625;
+}
+
+/*LinkedIn input*/
+.link-container {
+  display: flex;
+  position: fixed;
+  align-items: center;
+}
+
+.link-container > i {
+  position: absolute;
+  display: flex;
+  right: 0;
+  color: #8c909c;
+}

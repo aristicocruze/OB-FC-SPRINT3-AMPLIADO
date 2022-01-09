@@ -1,10 +1,10 @@
-
 import Students from "./pages/students/Students";
+import SingleStudent from "./pages/singleStudent/SingleStudent";
 
 function App() {
   return (
     <div>
-      <Students/>
+      <SingleStudent />
     </div>
   );
 }
