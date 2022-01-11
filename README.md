@@ -2,6 +2,6 @@
 
 #Routes for the pages 
 
-http://localhost:3000/
-http://localhost:3000/students
-http://localhost:3000/single
+#http://localhost:3000/
+#http://localhost:3000/students
+#http://localhost:3000/single
