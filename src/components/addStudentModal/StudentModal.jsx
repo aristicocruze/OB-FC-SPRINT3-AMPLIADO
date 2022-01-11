@@ -107,14 +107,14 @@ function StudentModal({ handleClose, show }) {
               </button>
               <p>Archivos soportados: .pdf Tamaño de archivo máximo: 20 MB</p>
             </div>
-            <label className="form-label">Etiquetas</label>
+            {/* <label className="form-label">Etiquetas</label>
             <input
               type="text"
               name=""
               id=""
               placeholder="Escribe para buscar...."
               className="complete-input"
-            />
+            /> */}
           </div>
         </div>
       </section>

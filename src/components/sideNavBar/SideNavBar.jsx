@@ -1,11 +1,19 @@
 import "./sideNavBar.css";
+import { Link } from "react-router-dom";
 
 function SideNavBar() {
   return (
     <div className="sideNavBar">
       <div className="sideNavBar-title">
         <p>
-          <h1>Open</h1>Recruiter
+          <h1>
+            <Link to="/" className="link">
+              Open
+            </Link>
+          </h1>
+          <Link to="/" className="link">
+            Recruiter
+          </Link>
         </p>
       </div>
 
@@ -13,26 +21,34 @@ function SideNavBar() {
         <h1>
           <i class="fas fa-briefcase"></i>
           <a href="/Ofertas" className="link">
-            Ofertas
+            <Link to="/students" className="link">
+              Ofertas
+            </Link>
           </a>
         </h1>
 
         <h1>
           <i class="fas fa-user-friends"></i>
-          <a href="/Candidatos" className="link">
-            Candidatos
+          <a href="/" className="link">
+            <Link to="/students" className="link">
+              Candidatos
+            </Link>
           </a>
         </h1>
         <h1>
           <i class="far fa-building"></i>
           <a href="/Clientes" className="link">
-            Clientes
+            <Link to="/students" className="link">
+              Clientes
+            </Link>
           </a>
         </h1>
         <h1>
           <i class="far fa-calendar-alt"></i>
           <a href="/Entrevistas" className="link">
-            Entrevistas
+            <Link to="/students" className="link">
+              Entrevistas
+            </Link>
           </a>
         </h1>
       </div>

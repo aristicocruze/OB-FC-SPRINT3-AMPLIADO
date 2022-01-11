@@ -2,6 +2,7 @@ import MockData from "../../MOCK_DATA.json";
 import "./dataTable.css";
 import { useState } from "react";
 import StudentModal from "../addStudentModal/StudentModal";
+import { Link } from "react-router-dom";
 
 function DataTable() {
   const [data, setData] = useState(MockData);
@@ -90,11 +91,31 @@ function DataTable() {
               })
               .map(m => (
                 <tr key={m.id}>
-                  <td>{m.Nombre}</td>
-                  <td>{m.Ciudad}</td>
-                  <td>{m.Pais}</td>
-                  <td>{m.Telefono}</td>
-                  <td>{m.Email}</td>
+                  <td>
+                    <Link to="/single" className="link">
+                      {m.Nombre}
+                    </Link>
+                  </td>
+                  <td>
+                    <Link to="/single" className="link">
+                      {m.Ciudad}
+                    </Link>
+                  </td>
+                  <td>
+                    <Link to="/single" className="link">
+                      {m.Pais}
+                    </Link>
+                  </td>
+                  <td>
+                    <Link to="/single" className="link">
+                      {m.Telefono}
+                    </Link>
+                  </td>
+                  <td>
+                    <Link to="/single" className="link">
+                      {m.Email}
+                    </Link>
+                  </td>
                   <div className="tag-container">
                     <td className="tag">{m.Etiquetas}</td>
                   </div>

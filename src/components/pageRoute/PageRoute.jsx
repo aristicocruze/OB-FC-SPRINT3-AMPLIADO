@@ -1,4 +1,5 @@
 import "./pageRoute.css";
+import { Link } from "react-router-dom";
 
 /**
  * This component is the page route in the top *
@@ -9,7 +10,10 @@ function PageRoute({ menuName, studentName }) {
   return (
     <div className="pageRoute">
       <p className="menuName">
-        {menuName} <i class="fas fa-chevron-left"></i>
+        <Link to="/students" className="link">
+          {menuName}
+        </Link>
+        <i class="fas fa-chevron-left"></i>
       </p>
       <p className="studentName">{studentName}</p>
     </div>
