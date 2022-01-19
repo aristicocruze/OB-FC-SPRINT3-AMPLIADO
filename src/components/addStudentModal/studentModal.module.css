@@ -1,5 +1,4 @@
-/*Container*/
-.modal-main {
+.modalMain {
   position: fixed;
   background: rgb(255, 255, 255);
   width: 80%;
@@ -20,15 +19,15 @@
   z-index: 50;
 }
 
-.display-block {
+.displayBlock {
   display: block;
 }
 
-.display-none {
+.displayNone {
   display: none;
 }
 
-.close-modal {
+.closeModal {
   cursor: pointer;
   color: #84889a;
   border: none;
@@ -44,12 +43,12 @@
 
 /*modal content*/
 
-.modal-wrapper {
+.modalWrapper {
   display: flex;
   margin-top: 50px;
 }
 
-.modal-left {
+.modalLeft {
   flex: 1;
   height: 100%;
   display: flex;
@@ -57,7 +56,7 @@
   margin-left: 25px;
 }
 
-.modal-title {
+.modalTitle {
   font-family: "Raleway";
   font-size: 19px;
   font-style: normal;
@@ -68,7 +67,7 @@
   margin-bottom: 20px;
 }
 
-.form-label {
+.formLabel {
   font-family: "Raleway";
   font-size: 14px;
   font-style: normal;
@@ -81,11 +80,11 @@
 }
 
 /*Inside the form split*/
-.label-container {
+.labelContainer {
   margin-top: 10px;
 }
 
-.form-select {
+.formSelect {
   height: 40px;
   width: 247px;
   left: 0px;
@@ -96,11 +95,11 @@
   border-style: none;
 }
 
-.basic-text-input {
+.basicTextInput {
   font-size: 13px;
 }
 
-.complete-input {
+.completeInput {
   height: 20px;
   width: 524px;
   left: 0px;
@@ -112,31 +111,31 @@
   background-color: #f8f8f9;
 }
 
-.complete-input::placeholder {
+.completeInput::placeholder {
   padding-left: 10px;
 }
 
-.form-split {
+.formSplit {
   display: flex;
   margin: 25px 0 25px 0;
   height: 250px;
   width: 500px;
 }
 
-.split-left {
+.splitLeft {
   flex: 1;
 }
 
-.split-right {
+.splitRight {
   flex: 1;
 }
 
-.modal-right {
+.modalRight {
   flex: 1;
   margin-top: 40px;
 }
 
-.basic-btn {
+.basicBtn {
   height: 40px;
   width: 150px;
   left: 0px;
@@ -156,20 +155,20 @@
   cursor: pointer;
 }
 
-.large-btn {
+.largeBtn {
   width: 200px;
 }
 
-.upload-icon {
+.basicBtn > i {
   margin-right: 10px;
 }
 
-.upload-pic-container {
+.uploadPicContainer {
   display: flex;
   margin-bottom: 50px;
 }
 
-.upload-pic-container > p {
+.uploadPicContainer > p {
   width: 40%;
   margin-left: 50px;
   font-family: "Raleway";
