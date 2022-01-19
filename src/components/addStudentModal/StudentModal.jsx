@@ -1,75 +1,108 @@
-import React from "react";
-import "./studentModal.css";
+import styles from "./studentModal.module.css";
 
 function StudentModal({ handleClose, show }) {
-  const showHideClassName = show ? "modal display-block" : "modal display-none";
-
   return (
-    <div className={showHideClassName}>
-      <section className="modal-main">
-        <button type="button" onClick={handleClose} className="close-modal">
+    <div
+      className={
+        show
+          ? `${styles.modal} ${styles.displayBlock}`
+          : `${styles.modal} ${styles.displayNone}`
+      }
+    >
+      <section className={styles.modalMain}>
+        <button
+          type="button"
+          onClick={handleClose}
+          className={`${styles.closeModal}`}
+        >
           X
         </button>
-        <div className="modal-wrapper">
-          <div className="modal-left">
-            <p className="modal-title">Nuevo Candidato</p>
+        <div className={styles.modalWrapper}>
+          <div className={styles.modalLeft}>
+            <p className={styles.modalTitle}>Nuevo Candidato</p>
             <form>
-              <label className="form-label">Nombre y Apellidos</label>
+              <label className={styles.formLabel}>Nombre y Apellidos</label>
               <input
                 type="text"
                 name=""
                 id=""
                 placeholder="Ej. Aristides Cruz"
-                className="complete-input"
+                className={styles.completeInput}
               />
-              <div className="form-split">
-                <div className="split-left">
-                  <label className="form-label label-container">País</label>
-                  <select placeholder="Elige un país" className="form-select">
+              <div className={styles.formSplit}>
+                <div className={styles.splitLeft}>
+                  <label
+                    className={`${styles.formLabel} ${styles.labelContainer}`}
+                  >
+                    País
+                  </label>
+                  <select
+                    placeholder="Elige un país"
+                    className={styles.formSelect}
+                  >
                     <option>España</option>
                     <option>Francia</option>
                     <option>Mexico</option>
                     <option>Republica Dominicana</option>
                   </select>
-                  <label className="form-label label-container">
+                  <label
+                    className={`${styles.formLabel} ${styles.labelContainer}`}
+                  >
                     Nº Teléfono
                   </label>
                   <input
                     type="text"
-                    className="form-select basic-text-input"
+                    className={`${styles.formSelect} ${styles.basicTextInput}`}
                     placeholder="Ej: +34 612 34 56 78"
                   />
-                  <label className="form-label label-container">
+                  <label
+                    className={`${styles.formLabel} ${styles.labelContainer}`}
+                  >
                     Presencialidad
                   </label>
-                  <select placeholder="Elige un país" className="form-select">
+                  <select
+                    placeholder="Elige un país"
+                    className={styles.formSelect}
+                  >
                     <option>España</option>
                     <option>Francia</option>
                     <option>Mexico</option>
                     <option>Republica Dominicana</option>
                   </select>
                 </div>
-                <div className="split-right">
-                  <label className="form-label label-container">Ciudad</label>
+                <div className={styles.splitRight}>
+                  <label
+                    className={`${styles.formLabel} ${styles.labelContainer}`}
+                  >
+                    Ciudad
+                  </label>
                   <select
                     placeholder="Elige una ciudad"
-                    className="form-select"
+                    className={styles.formSelect}
                   >
                     <option>Madrid</option>
                     <option>Valencia</option>
                     <option>Galicia</option>
                     <option>Ibiza</option>
                   </select>
-                  <label className="form-label label-container">Email</label>
+                  <label
+                    className={`${styles.formLabel} ${styles.labelContainer}`}
+                  >
+                    Email
+                  </label>
                   <input
                     type="text"
-                    className="form-select basic-text-input"
+                    className={`${styles.formSelect} ${styles.basicTextInput}`}
                     placeholder="Ej: user@mail.com"
                   />
-                  <label className="form-label label-container">Traslado</label>
+                  <label
+                    className={`${styles.formLabel} ${styles.labelContainer}`}
+                  >
+                    Traslado
+                  </label>
                   <select
                     placeholder="Elige una opción"
-                    className="form-select"
+                    className={styles.formSelect}
                   >
                     <option>Si</option>
                     <option>No</option>
@@ -77,44 +110,43 @@ function StudentModal({ handleClose, show }) {
                   </select>
                 </div>
               </div>
-              <label className="form-label">Perfil LinkedIn</label>
+              <label className={styles.formLabel}>Perfil LinkedIn</label>
               <input
                 type="text"
                 name=""
                 id=""
                 placeholder="Enlace a LinkedIn"
-                className="complete-input"
+                className={styles.completeInput}
               />
             </form>
           </div>
 
-          <div className="modal-right">
-            <label className="form-label">Foto de perfil</label>
-            <div className="upload-pic-container">
-              <button className="basic-btn">
-                <i class="fas fa-cloud-upload-alt upload-icon"></i>Subir imagen
+          <div className={styles.modalRight}>
+            <label className={styles.formLabel}>Foto de perfil</label>
+            <div className={styles.uploadPicContainer}>
+              <button className={styles.basicBtn}>
+                <i class="fas fa-cloud-upload-alt"></i>Subir imagen
               </button>
               <p>
                 Archivos soportados: .png, .jpg, y .jpeg Tamaño de archivo
                 máximo: 2 MB
               </p>
             </div>
-            <label className="form-label">Documento CV</label>
-            <div className="upload-pic-container">
-              <button className="basic-btn large-btn">
-                <i class="fas fa-cloud-upload-alt upload-icon"></i>Subir
-                documento PDF
+            <label className={styles.formLabel}>Documento CV</label>
+            <div className={styles.uploadPicContainer}>
+              <button className={`${styles.basicBtn} ${styles.largeBtn}`}>
+                <i class="fas fa-cloud-upload-alt"></i>Subir documento PDF
               </button>
               <p>Archivos soportados: .pdf Tamaño de archivo máximo: 20 MB</p>
             </div>
-            {/* <label className="form-label">Etiquetas</label>
+            <label className={styles.formLabel}>Etiquetas</label>
             <input
               type="text"
               name=""
               id=""
               placeholder="Escribe para buscar...."
-              className="complete-input"
-            /> */}
+              className={styles.completeInput}
+            />
           </div>
         </div>
       </section>
