@@ -1,8 +1,8 @@
 .modalMain {
-  position: fixed;
+  position: relative;
   background: rgb(255, 255, 255);
-  width: 80%;
-  height: 80%;
+  width: 70%;
+  height: 75%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -45,7 +45,8 @@
 
 .modalWrapper {
   display: flex;
-  margin-top: 50px;
+  margin-top: 25px;
+  padding-top: 50px;
 }
 
 .modalLeft {
@@ -102,8 +103,6 @@
 .completeInput {
   height: 20px;
   width: 524px;
-  left: 0px;
-  top: 28px;
   border-radius: 8px;
   border-style: none;
   padding: 12px, 15px, 12px, 15px;
@@ -115,11 +114,22 @@
   padding-left: 10px;
 }
 
+.tagsInput {
+  height: 50px;
+  width: 450px;
+  padding-left: 25px;
+  font-size: 16px;
+}
+
+.tagsInput ::placeholder {
+  padding-left: 25px;
+}
+
 .formSplit {
   display: flex;
-  margin: 25px 0 25px 0;
+  margin: 5px 0 5px 0;
   height: 250px;
-  width: 500px;
+  width: 600px;
 }
 
 .splitLeft {
@@ -132,7 +142,7 @@
 
 .modalRight {
   flex: 1;
-  margin-top: 40px;
+  margin-top: 90px;
 }
 
 .basicBtn {
@@ -178,4 +188,22 @@
   line-height: 19px;
   letter-spacing: 0px;
   text-align: left;
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  position: absolute;
+  background-color: #e7e6e6;
+  height: 60px;
+  width: 100%;
+  bottom: 0;
+  right: 0;
+  border-radius: 0 0 8px 8px;
+}
+
+.footerBtn {
+  margin-right: 10px;
+  width: 100px;
 }

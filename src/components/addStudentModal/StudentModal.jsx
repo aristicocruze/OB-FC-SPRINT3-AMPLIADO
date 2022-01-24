@@ -145,10 +145,21 @@ function StudentModal({ handleClose, show }) {
               name=""
               id=""
               placeholder="Escribe para buscar...."
-              className={styles.completeInput}
+              className={`${styles.completeInput} ${styles.tagsInput}`}
             />
           </div>
         </div>
+        <footer>
+          <button className={`${styles.basicBtn} ${styles.footerBtn}`}>
+            Guardar
+          </button>
+          <button
+            className={`${styles.basicBtn} ${styles.footerBtn}`}
+            onClick={handleClose}
+          >
+            Cancelar
+          </button>
+        </footer>
       </section>
     </div>
   );
