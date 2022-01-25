@@ -21,11 +21,17 @@ function SingleStudent() {
         <PageRoute menuName={"Candidatos"} studentName={"Nombre Apellido"} />
         <div className={styles.tableWrapper}>
           <div className={styles.studentLeft}>
-            <StudentInformation />
+            <StudentInformation
+              name={"Aristides Cruz"}
+              country={"Madrid, España"}
+              jobMode={"En remoto, Sin traslado"}
+              status={"CONTRATADO"}
+            />
+
             <form className={styles.form}>
               <label className={styles.formLabel}>Nombre y Apellidos</label>
               <input
-                className={styles.formInput}
+                className={styles.singleFormInput}
                 type="text"
                 name=""
                 id=""

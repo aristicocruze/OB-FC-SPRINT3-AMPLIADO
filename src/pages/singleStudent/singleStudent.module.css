@@ -13,7 +13,7 @@
 }
 
 .studentLeft {
-  flex: 2;
+  flex: 1;
 }
 
 /* Form styling */
@@ -26,7 +26,7 @@
 
 .formWrapper {
   display: flex;
-  margin: 30px 0 30px 0;
+  margin: 5px 0 30px 0;
 }
 
 .formLeft {
@@ -52,6 +52,15 @@
 .formInput {
   width: 935px;
   height: 40px;
+  background-color: #f8f8f9;
+  border-radius: 8px;
+  border-style: none;
+  padding-left: 15px;
+}
+
+.singleFormInput {
+  width: 999px;
+  height: 25px;
   background-color: #f8f8f9;
   border-radius: 8px;
   border-style: none;
