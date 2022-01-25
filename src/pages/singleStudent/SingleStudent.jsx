@@ -1,4 +1,5 @@
 import "./singleStudent.css";
+import styles from "./singleStudent.module.css";
 import { useState } from "react";
 import SideNavBar from "../../components/sideNavBar/SideNavBar";
 import TopSearch from "../../components/topSearch/TopSearch";
@@ -13,39 +14,43 @@ function SingleStudent() {
   };
 
   return (
-    <div className="students-container">
+    <div className={styles.studentsContainer}>
       <SideNavBar />
-      <div className="inside-content">
+      <div className={styles.insideContent}>
         <TopSearch />
         <PageRoute menuName={"Candidatos"} studentName={"Nombre Apellido"} />
-        <div className="table-wrapper">
-          <div className="student-left">
+        <div className={styles.tableWrapper}>
+          <div className={styles.studentLeft}>
             <StudentInformation />
-            <form>
-              <label className="form-label">Nombre y Apellidos</label>
+            <form className={styles.form}>
+              <label className={styles.formLabel}>Nombre y Apellidos</label>
               <input
-                className="form-input"
+                className={styles.formInput}
                 type="text"
                 name=""
                 id=""
                 placeholder="Nombre Alumno"
               />
-              <div className="form-wrapper">
-                <div className="form-left">
+              <div className={styles.formWrapper}>
+                <div className={styles.formLeft}>
                   {/* Nº Teléfono */}
-                  <label className="form-label split-label">Nº Teléfono</label>
+                  <label className={`${styles.formLabel} ${styles.splitLabel}`}>
+                    Nº Teléfono
+                  </label>
                   <input
-                    className="form-input form-split-input"
+                    className={`${styles.formInput} ${styles.formSplitInput}`}
                     type="text"
                     name=""
                     id=""
                     placeholder="+34 654 85 52 48"
                   />
                   {/* Pais */}
-                  <label className="form-label split-label">País</label>
+                  <label className={`${styles.formLabel} ${styles.splitLabel}`}>
+                    País
+                  </label>
                   <select
                     placeholder="España"
-                    className="form-input form-split-input form-select"
+                    className={`${styles.formInput} ${styles.formSplitInput} ${styles.formSelect}`}
                   >
                     <option>España</option>
                     <option>Francia</option>
@@ -53,22 +58,24 @@ function SingleStudent() {
                     <option>Colombia</option>
                   </select>
                   {/* Traslado */}
-                  <label className="form-label split-label">Traslado</label>
+                  <label className={`${styles.formLabel} ${styles.splitLabel}`}>
+                    Traslado
+                  </label>
                   <select
                     placeholder="No"
-                    className="form-input form-split-input form-select"
+                    className={`${styles.formInput} ${styles.formSplitInput} ${styles.formSelect}`}
                   >
                     <option>Si</option>
                     <option>No</option>
                     <option>Mixto</option>
                   </select>
                   {/* Enlace LinkedIn */}
-                  <label className="form-label split-label">
+                  <label className={`${styles.formLabel} ${styles.splitLabel}`}>
                     Enlace a LinkedIn
                   </label>
-                  <div className="link-container">
+                  <div className={styles.linkContainer}>
                     <input
-                      className="form-input form-split-input"
+                      className={`${styles.formInput} ${styles.formSplitInput}`}
                       type="text"
                       name=""
                       id=""
@@ -77,21 +84,25 @@ function SingleStudent() {
                     <i class="fas fa-link"> </i>
                   </div>
                 </div>
-                <div className="form-right">
+                <div className={styles.formRight}>
                   {/* Email */}
-                  <label className="form-label split-label">Email</label>
+                  <label className={`${styles.formLabel} ${styles.splitLabel}`}>
+                    Email
+                  </label>
                   <input
-                    className="form-input form-split-input"
+                    className={`${styles.formInput} ${styles.formSplitInput}`}
                     type="text"
                     name=""
                     id=""
                     placeholder="hcliment@gmail.com"
                   />
                   {/* Ciudad */}
-                  <label className="form-label split-label">Ciudad</label>
+                  <label className={`${styles.formLabel} ${styles.splitLabel}`}>
+                    Ciudad
+                  </label>
                   <select
                     placeholder="Valencia"
-                    className="form-input form-split-input form-select"
+                    className={`${styles.formInput} ${styles.formSplitInput} ${styles.formSelect}`}
                   >
                     <option>Madrid</option>
                     <option>Valencia</option>
@@ -99,24 +110,24 @@ function SingleStudent() {
                     <option>Galicia</option>
                   </select>
                   {/* Presencialidad */}
-                  <label className="form-label split-label">
+                  <label className={`${styles.formLabel} ${styles.splitLabel}`}>
                     Presencialidad
                   </label>
                   <select
                     placeholder="Remoto"
-                    className="form-input form-split-input form-select"
+                    className={`${styles.formInput} ${styles.formSplitInput} ${styles.formSelect}`}
                   >
                     <option>En Remoto</option>
                     <option>Presencial</option>
                     <option>Mixto</option>
                   </select>
                   {/* Estado Laboral */}
-                  <label className="form-label split-label">
+                  <label className={`${styles.formLabel} ${styles.splitLabel}`}>
                     Estado laboral
                   </label>
                   <select
                     placeholder="Estado laboral"
-                    className="form-input form-split-input form-select"
+                    className={`${styles.formInput} ${styles.formSplitInput} ${styles.formSelect}`}
                   >
                     <option>Contratado</option>
                     <option>En proceso</option>
@@ -125,22 +136,24 @@ function SingleStudent() {
                 </div>
               </div>
               {/* Documento CV */}
-              <label className="form-label split-label">Documento CV</label>
-              <div className="btn-container">
-                <button className="btn">
-                  <i class="fas fa-cloud-upload-alt btn-icons"></i> Subir de
-                  nuevo
+              <label className={`${styles.formLabel} ${styles.splitLabel}`}>
+                Documento CV
+              </label>
+              <div>
+                <button className={styles.btn}>
+                  <i class="fas fa-cloud-upload-alt"></i> Subir de nuevo
                 </button>
-                <button className="btn delete-btn">
-                  <i class="far fa-trash-alt btn-icons"></i> Borrar
+                <button className={`${styles.btn} ${styles.deleteBtn}`}>
+                  <i class="far fa-trash-alt "></i> Borrar
                 </button>
               </div>
             </form>
           </div>
-          <div className="student-right">
-            <div className="bloc-tabs">
+          {/* Tabs */}
+          <div className={styles.studentRight}>
+            <div className={styles.blocTabs}>
               <button
-                className={toggleState === 1 ? "tabs active-tabs" : "tabs"}
+                className={toggleState === 1 ? `tabs active-tabs` : "tabs"}
                 onClick={() => toggleTab(1)}
               >
                 Habilidades
@@ -166,9 +179,11 @@ function SingleStudent() {
                 }
               >
                 {/* Tecnologías */}
-                <label className="form-label split-label">Tecnologías</label>
+                <label className={`${styles.formLabel} ${styles.splitLabel}`}>
+                  Tecnologías
+                </label>
                 <input
-                  className="form-input form-split-input"
+                  className={`${styles.formInput} ${styles.formSplitInput}`}
                   type="text"
                   name=""
                   id=""
@@ -176,9 +191,11 @@ function SingleStudent() {
                 />
 
                 {/* Idiomas */}
-                <label className="form-label split-label">Idiomas</label>
+                <label className={`${styles.formLabel} ${styles.splitLabel}`}>
+                  Idiomas
+                </label>
                 <input
-                  className="form-input form-split-input"
+                  className={`${styles.formInput} ${styles.formSplitInput}`}
                   type="text"
                   name=""
                   id=""

@@ -149,7 +149,8 @@ function StudentModal({ handleClose, show }) {
             />
           </div>
         </div>
-        <footer>
+        {/* Footer */}
+        <div className={styles.ft}>
           <button className={`${styles.basicBtn} ${styles.footerBtn}`}>
             Guardar
           </button>
@@ -159,7 +160,7 @@ function StudentModal({ handleClose, show }) {
           >
             Cancelar
           </button>
-        </footer>
+        </div>
       </section>
     </div>
   );

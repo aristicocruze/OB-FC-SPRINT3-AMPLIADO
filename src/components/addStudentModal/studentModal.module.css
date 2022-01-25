@@ -190,7 +190,7 @@
   text-align: left;
 }
 
-footer {
+.ft {
   display: flex;
   align-items: center;
   justify-content: flex-end;
