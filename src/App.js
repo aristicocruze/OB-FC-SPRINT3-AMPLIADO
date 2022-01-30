@@ -15,11 +15,11 @@ function App() {
         <Routes>
           <Route path="/" element={user ? <Students /> : <LoginPage />}></Route>
           <Route
-            path="students"
+            path="/students"
             element={user ? <Students /> : <LoginPage />}
           ></Route>
           <Route
-            path="single"
+            path="/single"
             element={user ? <SingleStudent /> : <LoginPage />}
           ></Route>
         </Routes>
