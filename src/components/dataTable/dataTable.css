@@ -125,3 +125,25 @@ th {
 .filter {
   cursor: pointer;
 }
+/*job status tags */
+.status-container {
+}
+.status {
+  color: #fff;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 5px;
+}
+
+.Contratado {
+  background-color: #36e4a6;
+}
+
+.pdte {
+  background-color: #3fcbf8;
+}
+
+.Preseleccionado {
+  background-color: #3684fa;
+}

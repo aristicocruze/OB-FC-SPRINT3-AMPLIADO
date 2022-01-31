@@ -19,7 +19,7 @@ function App() {
             element={user ? <Students /> : <LoginPage />}
           ></Route>
           <Route
-            path="/single"
+            path="/single/:id"
             element={user ? <SingleStudent /> : <LoginPage />}
           ></Route>
         </Routes>

@@ -1,13 +1,29 @@
+import { useState, useContext, useEffect } from "react";
+import axios from "axios";
+import { useLocation } from "react-router";
+import { Context } from "../../context/Context";
 import "./singleStudent.css";
 import styles from "./singleStudent.module.css";
-import { useState } from "react";
 import SideNavBar from "../../components/sideNavBar/SideNavBar";
 import TopSearch from "../../components/topSearch/TopSearch";
 import PageRoute from "../../components/pageRoute/PageRoute";
 import StudentInformation from "../../components/studentInformation/StudentInformation";
 
 function SingleStudent() {
+  const location = useLocation();
+  const path = location.pathname.split("/")[2]; //to get the id of the post
+  const PF = "http://localhost:5000";
+  const { user } = useContext(Context);
+  const [candidate, setCandidate] = useState({});
   const [toggleState, setToggleState] = useState(1);
+
+  useEffect(() => {
+    const fetchCandidate = async () => {
+      const res = await axios.get("/candidates/" + path);
+      setCandidate(res.data);
+    };
+    fetchCandidate();
+  }, [path]);
 
   const toggleTab = index => {
     setToggleState(index);
@@ -22,8 +38,8 @@ function SingleStudent() {
         <div className={styles.tableWrapper}>
           <div className={styles.studentLeft}>
             <StudentInformation
-              name={"Aristides Cruz"}
-              country={"Madrid, España"}
+              name={candidate.name}
+              country={`${candidate.city}, ${candidate.country}`}
               jobMode={"En remoto, Sin traslado"}
               status={"CONTRATADO"}
             />
