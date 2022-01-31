@@ -1,14 +1,26 @@
-import MockData from "../../MOCK_DATA.json";
-import "./dataTable.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 import StudentModal from "../addStudentModal/StudentModal";
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router";
+import "./dataTable.css";
+import MockData from "../../MOCK_DATA.json";
 
 function DataTable() {
-  const [data, setData] = useState(MockData);
+  const [data, setData] = useState([]);
   const [search, setSearch] = useState("");
   const [order, setOrder] = useState("ASC");
   const [handleShow, setHandleShow] = useState(false);
+  const { location } = useLocation();
+
+  useEffect(() => {
+    const fetchCandidates = async () => {
+      const res = await axios.get("/candidates");
+      setData(res.data);
+      console.log(res.data);
+    };
+    fetchCandidates();
+  }, [location]);
 
   const showModal = () => {
     setHandleShow(true);
@@ -64,9 +76,7 @@ function DataTable() {
               <th onClick={() => sorting("Ciudad")} className="filter">
                 Ciudad <i class="fas fa-sort"></i>
               </th>
-              <th onClick={() => sorting("Pais")} className="filter">
-                Pais <i class="fas fa-sort"></i>
-              </th>
+
               <th>Telefono</th>
               <th onClick={() => sorting("Email")} className="filter">
                 Email <i class="fas fa-sort"></i>
@@ -74,6 +84,7 @@ function DataTable() {
               <th onClick={() => sorting("Etiquetas")} className="filter">
                 Etiquetas <i class="fas fa-sort"></i>
               </th>
+              <th>Estado</th>
             </tr>
           </thead>
           <tbody>
@@ -93,32 +104,32 @@ function DataTable() {
                 <tr key={m.id}>
                   <td>
                     <Link to="/single" className="link">
-                      {m.Nombre}
+                      {m.name}
                     </Link>
                   </td>
                   <td>
                     <Link to="/single" className="link">
-                      {m.Ciudad}
+                      {`${m.city}, ${m.country}`}
+                    </Link>
+                  </td>
+
+                  <td>
+                    <Link to="/single" className="link">
+                      {m.phoneNumber}
                     </Link>
                   </td>
                   <td>
                     <Link to="/single" className="link">
-                      {m.Pais}
+                      {m.email}
                     </Link>
                   </td>
-                  <td>
-                    <Link to="/single" className="link">
-                      {m.Telefono}
-                    </Link>
+                  <td className="tag-container">
+                    {m.technologies.map(tech => {
+                      return <td className="tag">{tech}</td>;
+                    })}
                   </td>
-                  <td>
-                    <Link to="/single" className="link">
-                      {m.Email}
-                    </Link>
-                  </td>
-                  <div className="tag-container">
-                    <td className="tag">{m.Etiquetas}</td>
-                  </div>
+
+                  <td>{m.employment}</td>
                 </tr>
               ))}
           </tbody>
