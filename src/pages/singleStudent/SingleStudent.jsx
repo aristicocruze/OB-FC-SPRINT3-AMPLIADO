@@ -34,14 +34,14 @@ function SingleStudent() {
       <SideNavBar />
       <div className={styles.insideContent}>
         <TopSearch />
-        <PageRoute menuName={"Candidatos"} studentName={"Nombre Apellido"} />
+        <PageRoute menuName={"Candidatos"} studentName={candidate.name} />
         <div className={styles.tableWrapper}>
           <div className={styles.studentLeft}>
             <StudentInformation
               name={candidate.name}
               country={`${candidate.city}, ${candidate.country}`}
-              jobMode={"En remoto, Sin traslado"}
-              status={"CONTRATADO"}
+              jobMode={candidate.attendance}
+              status={candidate.employment}
             />
 
             <form className={styles.form}>
@@ -52,6 +52,7 @@ function SingleStudent() {
                 name=""
                 id=""
                 placeholder="Nombre Alumno"
+                value={candidate.name}
               />
               <div className={styles.formWrapper}>
                 <div className={styles.formLeft}>
