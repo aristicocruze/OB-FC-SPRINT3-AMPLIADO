@@ -66,6 +66,7 @@ function SingleStudent() {
                     name=""
                     id=""
                     placeholder="+34 654 85 52 48"
+                    value={candidate.phoneNumber}
                   />
                   {/* Pais */}
                   <label className={`${styles.formLabel} ${styles.splitLabel}`}>
@@ -74,6 +75,7 @@ function SingleStudent() {
                   <select
                     placeholder="España"
                     className={`${styles.formInput} ${styles.formSplitInput} ${styles.formSelect}`}
+                    value={candidate.country}
                   >
                     <option>España</option>
                     <option>Francia</option>
@@ -87,6 +89,7 @@ function SingleStudent() {
                   <select
                     placeholder="No"
                     className={`${styles.formInput} ${styles.formSplitInput} ${styles.formSelect}`}
+                    value={candidate.transfer}
                   >
                     <option>Si</option>
                     <option>No</option>
@@ -103,6 +106,7 @@ function SingleStudent() {
                       name=""
                       id=""
                       placeholder="https://linkedIn.com/user_Id343564543213456"
+                      value={candidate.socialLink}
                     />
                     <i class="fas fa-link"> </i>
                   </div>
@@ -118,6 +122,7 @@ function SingleStudent() {
                     name=""
                     id=""
                     placeholder="hcliment@gmail.com"
+                    value={candidate.email}
                   />
                   {/* Ciudad */}
                   <label className={`${styles.formLabel} ${styles.splitLabel}`}>
@@ -126,6 +131,7 @@ function SingleStudent() {
                   <select
                     placeholder="Valencia"
                     className={`${styles.formInput} ${styles.formSplitInput} ${styles.formSelect}`}
+                    value={candidate.city}
                   >
                     <option>Madrid</option>
                     <option>Valencia</option>
@@ -139,6 +145,7 @@ function SingleStudent() {
                   <select
                     placeholder="Remoto"
                     className={`${styles.formInput} ${styles.formSplitInput} ${styles.formSelect}`}
+                    value={candidate.attendance}
                   >
                     <option>En Remoto</option>
                     <option>Presencial</option>
@@ -151,6 +158,7 @@ function SingleStudent() {
                   <select
                     placeholder="Estado laboral"
                     className={`${styles.formInput} ${styles.formSplitInput} ${styles.formSelect}`}
+                    value={candidate.employment}
                   >
                     <option>Contratado</option>
                     <option>En proceso</option>
@@ -212,6 +220,14 @@ function SingleStudent() {
                   id=""
                   placeholder="Escribe para buscar...."
                 />
+                <div className="tech-wrapper">
+                  {candidate.technologies &&
+                    candidate.technologies.map(tech => (
+                      <div className="tech-container">
+                        <h1 className="display-tech">{tech}</h1>
+                      </div>
+                    ))}
+                </div>
 
                 {/* Idiomas */}
                 <label className={`${styles.formLabel} ${styles.splitLabel}`}>
