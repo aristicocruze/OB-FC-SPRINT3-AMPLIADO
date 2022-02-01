@@ -240,6 +240,14 @@ function SingleStudent() {
                   id=""
                   placeholder="Escribe para buscar...."
                 />
+                <div className="tech-wrapper">
+                  {candidate.languages &&
+                    candidate.languages.map(lang => (
+                      <div className="tech-container">
+                        <h1 className="display-tech">{lang}</h1>
+                      </div>
+                    ))}
+                </div>
               </div>
 
               <div

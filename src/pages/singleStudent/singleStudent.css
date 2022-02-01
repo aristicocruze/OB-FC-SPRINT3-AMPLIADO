@@ -314,9 +314,10 @@ button {
 /*Display technologies in the tab menu */
 .tech-wrapper {
   display: flex;
-  justify-content: center;
+  justify-content: left;
   height: fit-content;
   width: 100%;
+  margin-top: 10px;
 }
 .tech-container {
   display: flex;

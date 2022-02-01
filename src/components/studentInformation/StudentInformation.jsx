@@ -23,7 +23,7 @@ function StudentInformation({ name, country, jobMode, status }) {
       </div>
       <div className="information-status">
         <p>Estado del candidato:</p>
-        <h1>{status}</h1>
+        <h1 className={status}>{status}</h1>
       </div>
     </div>
   );

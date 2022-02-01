@@ -103,8 +103,8 @@ th {
 .tag-container {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   text-align: center;
+  justify-content: center;
   height: 20px;
 }
 
@@ -120,6 +120,22 @@ th {
   cursor: pointer;
   text-align: center;
   height: 1px;
+  margin-left: 5px;
+}
+
+.tags-counter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #32d5a4;
+  color: #fff;
+  border-radius: 10px;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 15px;
+  margin-left: 5px;
+  width: 35px;
+  height: 35px;
 }
 
 .filter {

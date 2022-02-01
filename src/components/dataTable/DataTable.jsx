@@ -124,13 +124,20 @@ function DataTable() {
                     </Link>
                   </td>
                   <td className="tag-container">
-                    {m.technologies.map((tech, item) => {
-                      return (
-                        <td key={item} className="tag">
-                          {tech}
-                        </td>
-                      );
-                    })}
+                    {m.technologies
+                      .filter((item, index) => index < 2)
+                      .map((tech, item) => {
+                        return (
+                          <td key={item} className="tag">
+                            {`${tech}`}
+                          </td>
+                        );
+                      })}
+                    <h1 className="tags-counter">{`+ ${
+                      m.technologies.length > 1
+                        ? m.technologies.length - 2
+                        : m.technologies.length
+                    }`}</h1>
                   </td>
                   <td className="">
                     <div className={`${m.employment} status`}>

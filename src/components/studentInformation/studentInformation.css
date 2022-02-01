@@ -4,6 +4,7 @@
   height: 120px;
   padding-left: 50px;
   border-bottom: 1px solid #ddd;
+  position: relative;
 }
 
 .information-wrapper {
@@ -64,11 +65,14 @@
 }
 
 .information-status {
-  flex: 2;
+  flex: 1;
   display: flex;
   align-items: center;
   justify-content: flex-end;
   flex-direction: column;
+  position: absolute;
+  right: 0;
+  margin-right: 50px;
 }
 
 .information-status > p {
@@ -89,7 +93,6 @@
   justify-content: center;
   width: 98px;
   height: 22px;
-  background-color: #36e4a6;
   border-radius: 40px;
   font-family: "Raleway";
   font-size: 12px;
