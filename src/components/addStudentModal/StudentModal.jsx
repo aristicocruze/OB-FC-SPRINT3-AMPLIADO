@@ -3,17 +3,16 @@ import axios from "axios";
 import styles from "./studentModal.module.css";
 
 function StudentModal({ handleClose, show }) {
-  const [name, setName] = useState("newPost");
-  const [email, setEmail] = useState("admisasdn@admin.com");
-  const [phoneNumber, setPhoneNumber] = useState("newPhone");
-  const [country, setCountry] = useState("newCountry");
-  const [city, setCity] = useState("newCity");
-  const [transfer, setTransfer] = useState("newtransfer");
-  const [attendance, setAttendance] = useState("newattendance");
-  const [socialLink, setSocialLink] = useState("newsocialLink");
-  const [employment, setEmployment] = useState("pdte");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [country, setCountry] = useState("España");
+  const [city, setCity] = useState("Madrid");
+  const [transfer, setTransfer] = useState("Si");
+  const [attendance, setAttendance] = useState("Remoto");
+  const [socialLink, setSocialLink] = useState("");
   const [picture, setPicture] = useState("");
-  const [cv, setCv] = useState("newcv");
+  const [cv, setCv] = useState("");
   const [technologies, setTechnologies] = useState([]);
   const [languages, setLanguages] = useState([]);
 
@@ -28,7 +27,6 @@ function StudentModal({ handleClose, show }) {
       transfer,
       attendance,
       socialLink,
-      employment,
       picture,
       cv,
       technologies,
@@ -48,12 +46,25 @@ function StudentModal({ handleClose, show }) {
     // publish.
     try {
       const res = await axios.post("/candidates", newCandidate);
-      //window.location.replace("/single/" + res.data._id); //Change location to the new post.
+      window.location.replace("/single/" + res.data._id); //Change location to the new post.
       console.log(res.data);
     } catch (err) {
       console.log(`Error loading the candidate + ${err}`);
     }
   };
+
+  console.log(`${name},
+  ${email},
+  ${phoneNumber},
+  ${country},
+  ${city},
+  ${transfer},
+  ${attendance},
+  ${socialLink},
+  ${picture},
+  ${cv},
+  ${technologies},
+  ${languages},`);
 
   return (
     <div
@@ -74,7 +85,7 @@ function StudentModal({ handleClose, show }) {
         <div className={styles.modalWrapper}>
           <div className={styles.modalLeft}>
             <p className={styles.modalTitle}>Nuevo Candidato</p>
-            <form onSubmit={handleSubmit}>
+            <form>
               <label className={styles.formLabel}>Nombre y Apellidos</label>
               <input
                 type="text"
@@ -82,6 +93,7 @@ function StudentModal({ handleClose, show }) {
                 id=""
                 placeholder="Ej. Aristides Cruz"
                 className={styles.completeInput}
+                onChange={e => setName(e.target.value)}
               />
               <div className={styles.formSplit}>
                 <div className={styles.splitLeft}>
@@ -93,6 +105,7 @@ function StudentModal({ handleClose, show }) {
                   <select
                     placeholder="Elige un país"
                     className={styles.formSelect}
+                    onChange={e => setCountry(e.target.value)}
                   >
                     <option>España</option>
                     <option>Francia</option>
@@ -108,6 +121,7 @@ function StudentModal({ handleClose, show }) {
                     type="text"
                     className={`${styles.formSelect} ${styles.basicTextInput}`}
                     placeholder="Ej: +34 612 34 56 78"
+                    onChange={e => setPhoneNumber(e.target.value)}
                   />
                   <label
                     className={`${styles.formLabel} ${styles.labelContainer}`}
@@ -117,11 +131,11 @@ function StudentModal({ handleClose, show }) {
                   <select
                     placeholder="Elige un país"
                     className={styles.formSelect}
+                    onChange={e => setAttendance(e.target.value)}
                   >
-                    <option>España</option>
-                    <option>Francia</option>
-                    <option>Mexico</option>
-                    <option>Republica Dominicana</option>
+                    <option>Remoto</option>
+                    <option>Presencial</option>
+                    <option>Hibrido</option>
                   </select>
                 </div>
                 <div className={styles.splitRight}>
@@ -133,6 +147,7 @@ function StudentModal({ handleClose, show }) {
                   <select
                     placeholder="Elige una ciudad"
                     className={styles.formSelect}
+                    onChange={e => setCity(e.target.value)}
                   >
                     <option>Madrid</option>
                     <option>Valencia</option>
@@ -148,6 +163,7 @@ function StudentModal({ handleClose, show }) {
                     type="text"
                     className={`${styles.formSelect} ${styles.basicTextInput}`}
                     placeholder="Ej: user@mail.com"
+                    onChange={e => setEmail(e.target.value)}
                   />
                   <label
                     className={`${styles.formLabel} ${styles.labelContainer}`}
@@ -157,6 +173,7 @@ function StudentModal({ handleClose, show }) {
                   <select
                     placeholder="Elige una opción"
                     className={styles.formSelect}
+                    onChange={e => setTransfer(e.target.value)}
                   >
                     <option>Si</option>
                     <option>No</option>
@@ -171,6 +188,7 @@ function StudentModal({ handleClose, show }) {
                 id=""
                 placeholder="Enlace a LinkedIn"
                 className={styles.completeInput}
+                onChange={e => setSocialLink(e.target.value)}
               />
             </form>
           </div>
@@ -200,6 +218,16 @@ function StudentModal({ handleClose, show }) {
               id=""
               placeholder="Escribe para buscar...."
               className={`${styles.completeInput} ${styles.tagsInput}`}
+              onChange={e => setTechnologies(e.target.value)}
+            />
+            <label className={styles.formLabel}>Idiomas</label>
+            <input
+              type="text"
+              name=""
+              id=""
+              placeholder="Escribe para buscar...."
+              className={`${styles.completeInput} ${styles.tagsInput}`}
+              onChange={e => setLanguages(e.target.value)}
             />
           </div>
         </div>
