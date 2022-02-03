@@ -1,6 +1,60 @@
+import { useState, useEffect } from "react";
+import axios from "axios";
 import styles from "./studentModal.module.css";
 
 function StudentModal({ handleClose, show }) {
+  const [name, setName] = useState("newPost");
+  const [email, setEmail] = useState("admisasdn@admin.com");
+  const [phoneNumber, setPhoneNumber] = useState("newPhone");
+  const [country, setCountry] = useState("newCountry");
+  const [city, setCity] = useState("newCity");
+  const [transfer, setTransfer] = useState("newtransfer");
+  const [attendance, setAttendance] = useState("newattendance");
+  const [socialLink, setSocialLink] = useState("newsocialLink");
+  const [employment, setEmployment] = useState("pdte");
+  const [picture, setPicture] = useState("");
+  const [cv, setCv] = useState("newcv");
+  const [technologies, setTechnologies] = useState([]);
+  const [languages, setLanguages] = useState([]);
+
+  const handleSubmit = async e => {
+    e.preventDefault();
+    const newCandidate = {
+      name,
+      email,
+      phoneNumber,
+      country,
+      city,
+      transfer,
+      attendance,
+      socialLink,
+      employment,
+      picture,
+      cv,
+      technologies,
+      languages,
+    };
+
+    if (picture) {
+      const data = new FormData();
+      data.append("file", picture);
+      try {
+        const res = await axios.post("/upload", data);
+        setPicture(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    // publish.
+    try {
+      const res = await axios.post("/candidates", newCandidate);
+      //window.location.replace("/single/" + res.data._id); //Change location to the new post.
+      console.log(res.data);
+    } catch (err) {
+      console.log(`Error loading the candidate + ${err}`);
+    }
+  };
+
   return (
     <div
       className={
@@ -20,7 +74,7 @@ function StudentModal({ handleClose, show }) {
         <div className={styles.modalWrapper}>
           <div className={styles.modalLeft}>
             <p className={styles.modalTitle}>Nuevo Candidato</p>
-            <form>
+            <form onSubmit={handleSubmit}>
               <label className={styles.formLabel}>Nombre y Apellidos</label>
               <input
                 type="text"
@@ -151,7 +205,10 @@ function StudentModal({ handleClose, show }) {
         </div>
         {/* Footer */}
         <div className={styles.ft}>
-          <button className={`${styles.basicBtn} ${styles.footerBtn}`}>
+          <button
+            className={`${styles.basicBtn} ${styles.footerBtn}`}
+            onClick={handleSubmit}
+          >
             Guardar
           </button>
           <button
