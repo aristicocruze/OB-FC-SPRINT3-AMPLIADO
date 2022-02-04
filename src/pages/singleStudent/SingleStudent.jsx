@@ -8,6 +8,7 @@ import SideNavBar from "../../components/sideNavBar/SideNavBar";
 import TopSearch from "../../components/topSearch/TopSearch";
 import PageRoute from "../../components/pageRoute/PageRoute";
 import StudentInformation from "../../components/studentInformation/StudentInformation";
+import Pdf from "../../components/pdf/Pdf";
 
 function SingleStudent() {
   const location = useLocation();
@@ -256,13 +257,14 @@ function SingleStudent() {
                   toggleState === 2 ? "content  active-content" : "content"
                 }
               >
-                <object
-                  data={require("../../../src/CV.pdf")}
-                  type="application/pdf"
-                  width="100%"
-                  height="750px"
-                  aria-labelledby="label1"
-                ></object>
+                {/* Render PDF file */}
+                {candidate.cv ? (
+                  <div className="pdf-display-container">
+                    <Pdf directory={`${PF}${candidate.cv}`} />
+                  </div>
+                ) : (
+                  <p>Aun no se ha agregado el cv</p>
+                )}
               </div>
 
               <div
