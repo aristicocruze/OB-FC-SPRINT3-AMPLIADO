@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import axios from "axios";
 import styles from "./studentModal.module.css";
 
@@ -52,19 +52,6 @@ function StudentModal({ handleClose, show }) {
       console.log(`Error loading the candidate + ${err}`);
     }
   };
-
-  console.log(`${name},
-  ${email},
-  ${phoneNumber},
-  ${country},
-  ${city},
-  ${transfer},
-  ${attendance},
-  ${socialLink},
-  ${picture},
-  ${cv},
-  ${technologies},
-  ${languages},`);
 
   return (
     <div

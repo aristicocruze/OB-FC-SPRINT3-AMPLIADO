@@ -1,10 +1,15 @@
 import "./studentInformation.css";
 
-function StudentInformation({ name, country, jobMode, status }) {
+function StudentInformation({ name, country, jobMode, status, profilePic }) {
+  console.log(name, country, jobMode, status, profilePic);
   return (
     <div className="studentInformation">
       <div className="student-img">
-        <i class="fas fa-user-alt"></i>
+        {profilePic === "http://localhost:5050" ? (
+          <i class="fas fa-user-alt"></i>
+        ) : (
+          <img src={profilePic} alt="profilePic" className="profile-picture" />
+        )}
       </div>
       <div className="information-wrapper">
         <h1 className="student-name">{name}</h1>

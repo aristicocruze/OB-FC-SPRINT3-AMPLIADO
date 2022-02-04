@@ -12,6 +12,17 @@
   flex-direction: column;
 }
 
+.student-img {
+  width: 100px;
+}
+
+.profile-picture {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
 .student-img > i {
   display: flex;
   align-items: center;

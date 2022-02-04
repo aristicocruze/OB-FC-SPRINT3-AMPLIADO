@@ -12,7 +12,7 @@ import StudentInformation from "../../components/studentInformation/StudentInfor
 function SingleStudent() {
   const location = useLocation();
   const path = location.pathname.split("/")[2]; //to get the id of the post
-  const PF = "http://localhost:5000";
+  const PF = "http://localhost:5050";
   const { user } = useContext(Context);
   const [candidate, setCandidate] = useState({});
   const [toggleState, setToggleState] = useState(1);
@@ -42,6 +42,7 @@ function SingleStudent() {
               country={`${candidate.city}, ${candidate.country}`}
               jobMode={candidate.attendance}
               status={candidate.employment}
+              profilePic={`${PF}${candidate.picture}`}
             />
 
             <form className={styles.form}>
