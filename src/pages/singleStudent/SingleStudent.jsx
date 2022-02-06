@@ -18,10 +18,27 @@ function SingleStudent() {
   const [candidate, setCandidate] = useState({});
   const [toggleState, setToggleState] = useState(1);
 
+  // Forms states
+  const [editMode, setEditMode] = useState(false);
+  const [name, setName] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [phoneNumber, setPhoneNumber] = useState("");
+  // const [country, setCountry] = useState("España");
+  // const [city, setCity] = useState("Madrid");
+  // const [transfer, setTransfer] = useState("Si");
+  // const [attendance, setAttendance] = useState("Remoto");
+  // const [socialLink, setSocialLink] = useState("");
+  // const [picture, setPicture] = useState("");
+  // const [cv, setCv] = useState("");
+  // const [technologies, setTechnologies] = useState([]);
+  // const [languages, setLanguages] = useState([]);
+
   useEffect(() => {
     const fetchCandidate = async () => {
       const res = await axios.get("/candidates/" + path);
       setCandidate(res.data);
+      // states for elements in the form
+      setName(res.data.name);
     };
     fetchCandidate();
   }, [path]);
@@ -45,17 +62,43 @@ function SingleStudent() {
               status={candidate.employment}
               profilePic={`${PF}${candidate.picture}`}
             />
-
+            {/* Edit Button */}
+            <button
+              className="editMode"
+              onClick={() =>
+                editMode ? setEditMode(false) : setEditMode(true)
+              }
+            >
+              Editar
+            </button>
+            {editMode && (
+              <p className={styles.editLabel}>Editando Formulario</p>
+            )}{" "}
             <form className={styles.form}>
+              {/* Nombre y apellido */}
               <label className={styles.formLabel}>Nombre y Apellidos</label>
-              <input
-                className={styles.singleFormInput}
-                type="text"
-                name=""
-                id=""
-                placeholder="Nombre Alumno"
-                value={candidate.name}
-              />
+              {editMode ? (
+                <input
+                  className={`${styles.singleFormInput} ${styles.editForm}`}
+                  type="text"
+                  name=""
+                  id=""
+                  placeholder="Nombre Alumno"
+                  value={name}
+                  onChange={e => setName(e.target.value)}
+                />
+              ) : (
+                <input
+                  className={styles.singleFormInput}
+                  type="text"
+                  name=""
+                  id=""
+                  placeholder="Nombre Alumno"
+                  value={candidate.name}
+                  readOnly
+                />
+              )}
+
               <div className={styles.formWrapper}>
                 <div className={styles.formLeft}>
                   {/* Nº Teléfono */}
@@ -69,6 +112,7 @@ function SingleStudent() {
                     id=""
                     placeholder="+34 654 85 52 48"
                     value={candidate.phoneNumber}
+                    readOnly
                   />
                   {/* Pais */}
                   <label className={`${styles.formLabel} ${styles.splitLabel}`}>

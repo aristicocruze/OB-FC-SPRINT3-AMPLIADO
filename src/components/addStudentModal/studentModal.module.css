@@ -40,6 +40,25 @@
   right: 0;
   top: 0;
 }
+/* Warning message */
+.warningMessage {
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 8px;
+  padding: 5px;
+  width: fit-content;
+  position: absolute;
+  right: 50%;
+}
+
+.correctMessage {
+  background-color: rgb(129, 243, 129);
+}
+
+.incorrectMessage {
+  background-color: rgba(255, 0, 0, 0.726);
+}
 
 /*modal content*/
 

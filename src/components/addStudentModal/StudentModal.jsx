@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import axios from "axios";
 import styles from "./studentModal.module.css";
 
 function StudentModal({ handleClose, show }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const emailRef = useRef();
   const [phoneNumber, setPhoneNumber] = useState("");
   const [country, setCountry] = useState("España");
   const [city, setCity] = useState("Madrid");
@@ -16,8 +17,11 @@ function StudentModal({ handleClose, show }) {
   const [technologies, setTechnologies] = useState([]);
   const [languages, setLanguages] = useState([]);
 
+  const [isEmailAvailable, setIsEmailAvailable] = useState(true);
+
   const handleSubmit = async e => {
     e.preventDefault();
+
     const newCandidate = {
       name,
       email,
@@ -44,15 +48,33 @@ function StudentModal({ handleClose, show }) {
       }
     }
     // publish.
-    try {
-      const res = await axios.post("/candidates", newCandidate);
-      window.location.replace("/single/" + res.data._id); //Change location to the new post.
-      console.log(res.data);
-    } catch (err) {
-      console.log(`Error loading the candidate + ${err}`);
+    if (isEmailAvailable) {
+      try {
+        const res = await axios.post("/candidates", newCandidate);
+        window.location.replace("/single/" + res.data._id); //Change location to the new post.
+        console.log(res.data);
+      } catch (err) {
+        console.log(`Error loading the candidate + ${err}`);
+      }
     }
   };
 
+  const checkEmail = async e => {
+    setEmail(prev => (prev = emailRef.current.value));
+    const emailToCheck = {
+      email: emailRef.current.value,
+    };
+    console.log(emailRef.current.value);
+    console.log(email);
+    try {
+      const res = await axios.post("/candidates/checkemail", emailToCheck);
+      res.status === 200
+        ? setIsEmailAvailable(true)
+        : setIsEmailAvailable(false);
+    } catch (err) {
+      setIsEmailAvailable(false);
+    }
+  };
   return (
     <div
       className={
@@ -150,8 +172,25 @@ function StudentModal({ handleClose, show }) {
                     type="text"
                     className={`${styles.formSelect} ${styles.basicTextInput}`}
                     placeholder="Ej: user@mail.com"
-                    onChange={e => setEmail(e.target.value)}
+                    ref={emailRef}
+                    onChange={e => {
+                      checkEmail(e.target.value);
+                    }}
                   />
+                  {/* Validacion email */}
+                  {isEmailAvailable ? (
+                    <p
+                      className={`${styles.warningMessage} ${styles.correctMessage}`}
+                    >
+                      Email disponible
+                    </p>
+                  ) : (
+                    <p
+                      className={`${styles.warningMessage} ${styles.incorrectMessage}`}
+                    >
+                      Email se encuentra en uso
+                    </p>
+                  )}
                   <label
                     className={`${styles.formLabel} ${styles.labelContainer}`}
                   >

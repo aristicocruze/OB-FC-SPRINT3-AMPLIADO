@@ -90,6 +90,21 @@
   color: #121625;
 }
 
+/* When editing */
+.editForm {
+  background-color: #ececec;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.editLabel {
+  color: red;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /*LinkedIn input*/
 .linkContainer {
   position: relative;
