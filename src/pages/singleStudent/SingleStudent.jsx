@@ -193,9 +193,9 @@ function SingleStudent() {
                     className={`${styles.formInput} ${styles.formSplitInput} ${styles.formSelect}`}
                     value={candidate.attendance}
                   >
-                    <option>En Remoto</option>
+                    <option>Remoto</option>
                     <option>Presencial</option>
-                    <option>Mixto</option>
+                    <option>Hibrido</option>
                   </select>
                   {/* Estado Laboral */}
                   <label className={`${styles.formLabel} ${styles.splitLabel}`}>

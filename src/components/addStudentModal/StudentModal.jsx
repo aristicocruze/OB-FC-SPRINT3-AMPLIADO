@@ -4,7 +4,6 @@ import styles from "./studentModal.module.css";
 
 function StudentModal({ handleClose, show }) {
   const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
   const emailRef = useRef();
   const [phoneNumber, setPhoneNumber] = useState("");
   const [country, setCountry] = useState("España");
@@ -24,7 +23,7 @@ function StudentModal({ handleClose, show }) {
 
     const newCandidate = {
       name,
-      email,
+      email: emailRef.current.value,
       phoneNumber,
       country,
       city,
@@ -48,24 +47,20 @@ function StudentModal({ handleClose, show }) {
       }
     }
     // publish.
-    if (isEmailAvailable) {
-      try {
-        const res = await axios.post("/candidates", newCandidate);
-        window.location.replace("/single/" + res.data._id); //Change location to the new post.
-        console.log(res.data);
-      } catch (err) {
-        console.log(`Error loading the candidate + ${err}`);
-      }
+    try {
+      const res = await axios.post("/candidates", newCandidate);
+      window.location.replace("/single/" + res.data._id); //Change location to the new post.
+      console.log(res.data._id);
+    } catch (err) {
+      console.log(`Error loading the candidate + ${err}`);
     }
   };
 
   const checkEmail = async e => {
-    setEmail(prev => (prev = emailRef.current.value));
     const emailToCheck = {
       email: emailRef.current.value,
     };
-    console.log(emailRef.current.value);
-    console.log(email);
+
     try {
       const res = await axios.post("/candidates/checkemail", emailToCheck);
       res.status === 200
