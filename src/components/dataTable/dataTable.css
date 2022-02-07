@@ -152,6 +152,10 @@ th {
   padding: 5px;
 }
 
+.Desempleado {
+  background-color: #3fcbf8;
+}
+
 .Contratado {
   background-color: #36e4a6;
 }

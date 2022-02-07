@@ -15,9 +15,34 @@
 .studentLeft {
   flex: 1;
 }
+/* Edit, save and delete buttons */
+.upperBtns {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 50px;
+}
+
+.editModeBtn {
+  margin: 10px;
+  border-style: none;
+  cursor: pointer;
+  border-radius: 8px;
+  background-color: #3684fa;
+  color: white;
+  font-weight: 600;
+}
+
+.saveBtn {
+  background-color: rgb(117, 230, 5);
+}
+
+.deleteWrapper > button {
+  margin-right: 10px;
+  background-color: red;
+}
 
 /* Form styling */
-
 .form {
   margin: 50px 50px 0 50px;
   display: flex;

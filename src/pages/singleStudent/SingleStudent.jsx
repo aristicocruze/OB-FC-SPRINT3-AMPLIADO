@@ -75,7 +75,17 @@ function SingleStudent() {
     };
     try {
       const res = await axios.put("/candidates/" + path, updatedCandidate);
+      window.location.replace("/single/" + res.data._id); //render post again with updated data.
       console.log(res.data);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const deleteCandidate = async () => {
+    try {
+      await axios.delete("/candidates/" + path);
+      window.location.replace("/"); //Change location to home.
     } catch (err) {
       console.error(err);
     }
@@ -100,19 +110,39 @@ function SingleStudent() {
               status={candidate.employment}
               profilePic={`${PF}${candidate.picture}`}
             />
-            {/* Edit Button */}
-            <button
-              className="editMode"
-              onClick={() =>
-                editMode ? setEditMode(false) : setEditMode(true)
-              }
-            >
-              Editar
-            </button>
-            {/* Guardar */}
-            <button className="editMode" onClick={updateForm}>
-              Guardar
-            </button>
+            <div className={styles.upperBtns}>
+              <div className="editBtn">
+                {/* Edit Button */}
+                <button
+                  className={styles.editModeBtn}
+                  onClick={() =>
+                    editMode ? setEditMode(false) : setEditMode(true)
+                  }
+                >
+                  Editar
+                </button>
+                {/* Guardar */}
+                {editMode && (
+                  <button
+                    className={`${styles.editModeBtn} ${styles.saveBtn}`}
+                    onClick={updateForm}
+                  >
+                    Guardar
+                  </button>
+                )}
+              </div>
+              <div className={styles.deleteWrapper}>
+                {/* Eliminar */}
+                {editMode && (
+                  <button
+                    className={`${styles.editModeBtn}`}
+                    onClick={deleteCandidate}
+                  >
+                    Eliminar
+                  </button>
+                )}
+              </div>
+            </div>
             {/* Edit label */}
             {editMode && (
               <p className={styles.editLabel}>Editando Formulario</p>
@@ -357,7 +387,7 @@ function SingleStudent() {
                     >
                       <option>Contratado</option>
                       <option>pdte</option>
-                      <option>Desempleado</option>
+                      <option>Preseleccionado</option>
                     </select>
                   ) : (
                     <select
@@ -368,7 +398,7 @@ function SingleStudent() {
                     >
                       <option>Contratado</option>
                       <option>pdte</option>
-                      <option>Desempleado</option>
+                      <option>Preseleccionado</option>
                     </select>
                   )}
                 </div>
