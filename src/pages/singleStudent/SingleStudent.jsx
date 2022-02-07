@@ -18,20 +18,21 @@ function SingleStudent() {
   const [candidate, setCandidate] = useState({});
   const [toggleState, setToggleState] = useState(1);
 
-  // Forms states
   const [editMode, setEditMode] = useState(false);
+  // Forms states
   const [name, setName] = useState("");
-  // const [email, setEmail] = useState("");
-  // const [phoneNumber, setPhoneNumber] = useState("");
-  // const [country, setCountry] = useState("España");
-  // const [city, setCity] = useState("Madrid");
-  // const [transfer, setTransfer] = useState("Si");
-  // const [attendance, setAttendance] = useState("Remoto");
-  // const [socialLink, setSocialLink] = useState("");
-  // const [picture, setPicture] = useState("");
-  // const [cv, setCv] = useState("");
-  // const [technologies, setTechnologies] = useState([]);
-  // const [languages, setLanguages] = useState([]);
+  const [email, setEmail] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [country, setCountry] = useState("España");
+  const [city, setCity] = useState("Madrid");
+  const [transfer, setTransfer] = useState("Si");
+  const [attendance, setAttendance] = useState("Remoto");
+  const [employment, setEmployment] = useState("");
+  const [socialLink, setSocialLink] = useState("");
+  const [picture, setPicture] = useState("");
+  const [cv, setCv] = useState("");
+  const [technologies, setTechnologies] = useState([]);
+  const [languages, setLanguages] = useState([]);
 
   useEffect(() => {
     const fetchCandidate = async () => {
@@ -39,9 +40,46 @@ function SingleStudent() {
       setCandidate(res.data);
       // states for elements in the form
       setName(res.data.name);
+      setEmail(res.data.email);
+      setPhoneNumber(res.data.phoneNumber);
+      setCountry(res.data.country);
+      setCity(res.data.city);
+      setTransfer(res.data.transfer);
+      setAttendance(res.data.attendance);
+      setEmployment(res.data.employment);
+      setSocialLink(res.data.socialLink);
+      setPicture(res.data.picture);
+      setCv(res.data.cv);
+      setTechnologies(res.data.technologies);
+      setLanguages(res.data.languages);
     };
     fetchCandidate();
   }, [path]);
+
+  // update form data
+  const updateForm = async () => {
+    const updatedCandidate = {
+      name,
+      email,
+      phoneNumber,
+      country,
+      city,
+      transfer,
+      attendance,
+      employment,
+      socialLink,
+      picture,
+      cv,
+      technologies,
+      languages,
+    };
+    try {
+      const res = await axios.put("/candidates/" + path, updatedCandidate);
+      console.log(res.data);
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   const toggleTab = index => {
     setToggleState(index);
@@ -71,6 +109,11 @@ function SingleStudent() {
             >
               Editar
             </button>
+            {/* Guardar */}
+            <button className="editMode" onClick={updateForm}>
+              Guardar
+            </button>
+            {/* Edit label */}
             {editMode && (
               <p className={styles.editLabel}>Editando Formulario</p>
             )}{" "}
@@ -105,111 +148,229 @@ function SingleStudent() {
                   <label className={`${styles.formLabel} ${styles.splitLabel}`}>
                     Nº Teléfono
                   </label>
-                  <input
-                    className={`${styles.formInput} ${styles.formSplitInput}`}
-                    type="text"
-                    name=""
-                    id=""
-                    placeholder="+34 654 85 52 48"
-                    value={candidate.phoneNumber}
-                    readOnly
-                  />
-                  {/* Pais */}
-                  <label className={`${styles.formLabel} ${styles.splitLabel}`}>
-                    País
-                  </label>
-                  <select
-                    placeholder="España"
-                    className={`${styles.formInput} ${styles.formSplitInput} ${styles.formSelect}`}
-                    value={candidate.country}
-                  >
-                    <option>España</option>
-                    <option>Francia</option>
-                    <option>Republica Dominicana</option>
-                    <option>Colombia</option>
-                  </select>
-                  {/* Traslado */}
-                  <label className={`${styles.formLabel} ${styles.splitLabel}`}>
-                    Traslado
-                  </label>
-                  <select
-                    placeholder="No"
-                    className={`${styles.formInput} ${styles.formSplitInput} ${styles.formSelect}`}
-                    value={candidate.transfer}
-                  >
-                    <option>Si</option>
-                    <option>No</option>
-                    <option>Mixto</option>
-                  </select>
-                  {/* Enlace LinkedIn */}
-                  <label className={`${styles.formLabel} ${styles.splitLabel}`}>
-                    Enlace a LinkedIn
-                  </label>
-                  <div className={styles.linkContainer}>
+                  {editMode ? (
+                    <input
+                      className={`${styles.formInput} ${styles.formSplitInput} ${styles.editForm}`}
+                      type="text"
+                      name=""
+                      id=""
+                      placeholder="+34 654 85 52 48"
+                      value={phoneNumber}
+                      onChange={e => setPhoneNumber(e.target.value)}
+                    />
+                  ) : (
                     <input
                       className={`${styles.formInput} ${styles.formSplitInput}`}
                       type="text"
                       name=""
                       id=""
-                      placeholder="https://linkedIn.com/user_Id343564543213456"
-                      value={candidate.socialLink}
+                      placeholder="+34 654 85 52 48"
+                      value={candidate.phoneNumber}
+                      readOnly
                     />
-                    <i class="fas fa-link"> </i>
-                  </div>
+                  )}
+
+                  {/* Pais */}
+                  <label className={`${styles.formLabel} ${styles.splitLabel}`}>
+                    País
+                  </label>
+                  {editMode ? (
+                    <select
+                      placeholder="España"
+                      className={`${styles.formInput} ${styles.formSplitInput} ${styles.formSelect} ${styles.editForm}`}
+                      value={country}
+                      onChange={e => setCountry(e.target.value)}
+                    >
+                      <option>España</option>
+                      <option>Francia</option>
+                      <option>Republica Dominicana</option>
+                      <option>Colombia</option>
+                    </select>
+                  ) : (
+                    <select
+                      placeholder="España"
+                      className={`${styles.formInput} ${styles.formSplitInput} ${styles.formSelect}`}
+                      value={candidate.country}
+                      readOnly
+                    >
+                      <option>España</option>
+                      <option>Francia</option>
+                      <option>Republica Dominicana</option>
+                      <option>Colombia</option>
+                    </select>
+                  )}
+
+                  {/* Traslado */}
+                  <label className={`${styles.formLabel} ${styles.splitLabel}`}>
+                    Traslado
+                  </label>
+                  {editMode ? (
+                    <select
+                      placeholder="No"
+                      className={`${styles.formInput} ${styles.formSplitInput} ${styles.formSelect} ${styles.editForm}`}
+                      value={transfer}
+                      onChange={e => setTransfer(e.target.value)}
+                    >
+                      <option>Si</option>
+                      <option>No</option>
+                      <option>Mixto</option>
+                    </select>
+                  ) : (
+                    <select
+                      placeholder="No"
+                      className={`${styles.formInput} ${styles.formSplitInput} ${styles.formSelect}`}
+                      value={candidate.transfer}
+                      readOnly
+                    >
+                      <option>Si</option>
+                      <option>No</option>
+                      <option>Mixto</option>
+                    </select>
+                  )}
+
+                  {/* Enlace LinkedIn */}
+                  <label className={`${styles.formLabel} ${styles.splitLabel}`}>
+                    Enlace a LinkedIn
+                  </label>
+                  {editMode ? (
+                    <div className={styles.linkContainer}>
+                      <input
+                        className={`${styles.formInput} ${styles.formSplitInput} ${styles.editForm}`}
+                        type="text"
+                        name=""
+                        id=""
+                        placeholder="https://linkedIn.com/user_Id343564543213456"
+                        value={socialLink}
+                        onChange={e => setSocialLink(e.target.value)}
+                      />
+                      <i class="fas fa-link"> </i>
+                    </div>
+                  ) : (
+                    <div className={styles.linkContainer}>
+                      <input
+                        className={`${styles.formInput} ${styles.formSplitInput}`}
+                        type="text"
+                        name=""
+                        id=""
+                        placeholder="https://linkedIn.com/user_Id343564543213456"
+                        value={candidate.socialLink}
+                        readOnly
+                      />
+                      <i class="fas fa-link"> </i>
+                    </div>
+                  )}
                 </div>
                 <div className={styles.formRight}>
                   {/* Email */}
                   <label className={`${styles.formLabel} ${styles.splitLabel}`}>
                     Email
                   </label>
-                  <input
-                    className={`${styles.formInput} ${styles.formSplitInput}`}
-                    type="text"
-                    name=""
-                    id=""
-                    placeholder="hcliment@gmail.com"
-                    value={candidate.email}
-                  />
+                  {editMode ? (
+                    <input
+                      className={`${styles.formInput} ${styles.formSplitInput} ${styles.editForm}`}
+                      type="text"
+                      name=""
+                      id=""
+                      placeholder="hcliment@gmail.com"
+                      value={email}
+                      onChange={e => setEmail(e.target.value)}
+                    />
+                  ) : (
+                    <input
+                      className={`${styles.formInput} ${styles.formSplitInput}`}
+                      type="text"
+                      name=""
+                      id=""
+                      placeholder="hcliment@gmail.com"
+                      value={candidate.email}
+                      readOnly
+                    />
+                  )}
                   {/* Ciudad */}
                   <label className={`${styles.formLabel} ${styles.splitLabel}`}>
                     Ciudad
                   </label>
-                  <select
-                    placeholder="Valencia"
-                    className={`${styles.formInput} ${styles.formSplitInput} ${styles.formSelect}`}
-                    value={candidate.city}
-                  >
-                    <option>Madrid</option>
-                    <option>Valencia</option>
-                    <option>Malaga</option>
-                    <option>Galicia</option>
-                  </select>
+                  {editMode ? (
+                    <select
+                      placeholder="Valencia"
+                      className={`${styles.formInput} ${styles.formSplitInput} ${styles.formSelect} ${styles.editForm}`}
+                      value={city}
+                      onChange={e => setCity(e.target.value)}
+                    >
+                      <option>Madrid</option>
+                      <option>Valencia</option>
+                      <option>Malaga</option>
+                      <option>Galicia</option>
+                    </select>
+                  ) : (
+                    <select
+                      placeholder="Valencia"
+                      className={`${styles.formInput} ${styles.formSplitInput} ${styles.formSelect}`}
+                      value={candidate.city}
+                      readOnly
+                    >
+                      <option>Madrid</option>
+                      <option>Valencia</option>
+                      <option>Malaga</option>
+                      <option>Galicia</option>
+                    </select>
+                  )}
+
                   {/* Presencialidad */}
                   <label className={`${styles.formLabel} ${styles.splitLabel}`}>
                     Presencialidad
                   </label>
-                  <select
-                    placeholder="Remoto"
-                    className={`${styles.formInput} ${styles.formSplitInput} ${styles.formSelect}`}
-                    value={candidate.attendance}
-                  >
-                    <option>Remoto</option>
-                    <option>Presencial</option>
-                    <option>Hibrido</option>
-                  </select>
+                  {editMode ? (
+                    <select
+                      placeholder="Remoto"
+                      className={`${styles.formInput} ${styles.formSplitInput} ${styles.formSelect} ${styles.editForm}`}
+                      value={attendance}
+                      onChange={e => setAttendance(e.target.value)}
+                    >
+                      <option>Remoto</option>
+                      <option>Presencial</option>
+                      <option>Hibrido</option>
+                    </select>
+                  ) : (
+                    <select
+                      placeholder="Remoto"
+                      className={`${styles.formInput} ${styles.formSplitInput} ${styles.formSelect}`}
+                      value={candidate.attendance}
+                      readOnly
+                    >
+                      <option>Remoto</option>
+                      <option>Presencial</option>
+                      <option>Hibrido</option>
+                    </select>
+                  )}
+
                   {/* Estado Laboral */}
                   <label className={`${styles.formLabel} ${styles.splitLabel}`}>
                     Estado laboral
                   </label>
-                  <select
-                    placeholder="Estado laboral"
-                    className={`${styles.formInput} ${styles.formSplitInput} ${styles.formSelect}`}
-                    value={candidate.employment}
-                  >
-                    <option>Contratado</option>
-                    <option>En proceso</option>
-                    <option>Desempleado</option>
-                  </select>
+                  {editMode ? (
+                    <select
+                      placeholder="Estado laboral"
+                      className={`${styles.formInput} ${styles.formSplitInput} ${styles.formSelect} ${styles.editForm}`}
+                      value={employment}
+                      onChange={e => setEmployment(e.target.value)}
+                    >
+                      <option>Contratado</option>
+                      <option>pdte</option>
+                      <option>Desempleado</option>
+                    </select>
+                  ) : (
+                    <select
+                      placeholder="Estado laboral"
+                      className={`${styles.formInput} ${styles.formSplitInput} ${styles.formSelect}`}
+                      value={candidate.employment}
+                      readOnly
+                    >
+                      <option>Contratado</option>
+                      <option>pdte</option>
+                      <option>Desempleado</option>
+                    </select>
+                  )}
                 </div>
               </div>
               {/* Documento CV */}
