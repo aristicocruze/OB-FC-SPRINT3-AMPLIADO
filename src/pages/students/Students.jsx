@@ -10,7 +10,7 @@ import SideFilter from "../../components/sideFilter/SideFilter";
 function Students() {
   return (
     <div className="students-container">
-      <SideNavBar />
+      <SideNavBar tab={"Candidatos"} />
       <div className="inside-content">
         <TopSearch />
         <div className="table-wrapper">
