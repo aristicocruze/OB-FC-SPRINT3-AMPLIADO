@@ -13,7 +13,7 @@ import Pdf from "../../components/pdf/Pdf";
 function SingleStudent() {
   const location = useLocation();
   const path = location.pathname.split("/")[2]; //to get the id of the post
-  const PF = "http://localhost:5050";
+  const PF = "http://localhost:5050/images/";
   const { user } = useContext(Context);
   const [candidate, setCandidate] = useState({});
   const [toggleState, setToggleState] = useState(1);
@@ -109,6 +109,7 @@ function SingleStudent() {
               jobMode={candidate.attendance}
               status={candidate.employment}
               profilePic={`${PF}${candidate.picture}`}
+              editMode={editMode}
             />
             <div className={styles.upperBtns}>
               <div className="editBtn">

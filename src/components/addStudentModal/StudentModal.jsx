@@ -11,7 +11,9 @@ function StudentModal({ handleClose, show }) {
   const [transfer, setTransfer] = useState("Si");
   const [attendance, setAttendance] = useState("Remoto");
   const [socialLink, setSocialLink] = useState("");
-  const [picture, setPicture] = useState("");
+  //const [picture, setPicture] = useState("");
+  const [file, setFile] = useState(null);
+
   const [cv, setCv] = useState("");
   const [technologies, setTechnologies] = useState([]);
   const [languages, setLanguages] = useState([]);
@@ -30,18 +32,20 @@ function StudentModal({ handleClose, show }) {
       transfer,
       attendance,
       socialLink,
-      picture,
       cv,
       technologies,
       languages,
     };
 
-    if (picture) {
+    if (file) {
       const data = new FormData();
-      data.append("file", picture);
+      const filename = Date.now() + file.name;
+      data.append("name", filename);
+      data.append("file", file);
+      newCandidate.picture = filename;
       try {
         const res = await axios.post("/upload", data);
-        setPicture(res.data);
+        console.log(` ${res.data}`);
       } catch (err) {
         console.log(err);
       }
@@ -215,15 +219,32 @@ function StudentModal({ handleClose, show }) {
           </div>
 
           <div className={styles.modalRight}>
-            <label className={styles.formLabel}>Foto de perfil</label>
+            <label className={styles.formLabel} htmlFor="pictureInput">
+              Foto de perfil
+            </label>
             <div className={styles.uploadPicContainer}>
               <button className={styles.basicBtn}>
-                <i class="fas fa-cloud-upload-alt"></i>Subir imagen
+                <label htmlFor="pictureInput">
+                  <i class="fas fa-cloud-upload-alt"></i>Subir imagen
+                </label>
               </button>
+              <input
+                type="file"
+                id="pictureInput"
+                style={{ display: "none" }}
+                onChange={e => setFile(e.target.files[0])}
+              />
               <p>
                 Archivos soportados: .png, .jpg, y .jpeg Tamaño de archivo
                 máximo: 2 MB
               </p>
+              {file && (
+                <img
+                  className={styles.uploadedPicture}
+                  src={URL.createObjectURL(file)}
+                  alt=""
+                />
+              )}
             </div>
             <label className={styles.formLabel}>Documento CV</label>
             <div className={styles.uploadPicContainer}>

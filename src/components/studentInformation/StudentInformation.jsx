@@ -1,11 +1,19 @@
 import "./studentInformation.css";
 
-function StudentInformation({ name, country, jobMode, status, profilePic }) {
-  console.log(name, country, jobMode, status, profilePic);
+function StudentInformation({
+  name,
+  country,
+  jobMode,
+  status,
+  profilePic,
+  editMode,
+}) {
+  console.log(`Edit mode enable: ${editMode}`);
+
   return (
     <div className="studentInformation">
       <div className="student-img">
-        {profilePic === "http://localhost:5050" ? (
+        {profilePic === "" ? (
           <i class="fas fa-user-alt"></i>
         ) : (
           <img src={profilePic} alt="profilePic" className="profile-picture" />

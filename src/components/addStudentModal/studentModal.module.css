@@ -192,9 +192,20 @@
   margin-right: 10px;
 }
 
+.basicBtn > label {
+  cursor: pointer;
+}
+
 .uploadPicContainer {
   display: flex;
   margin-bottom: 50px;
+}
+
+.uploadedPicture {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .uploadPicContainer > p {
