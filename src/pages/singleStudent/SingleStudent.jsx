@@ -97,7 +97,7 @@ function SingleStudent() {
 
   return (
     <div className={styles.studentsContainer}>
-      <SideNavBar />
+      <SideNavBar tab={"Candidatos"} />
       <div className={styles.insideContent}>
         <TopSearch />
         <PageRoute menuName={"Candidatos"} studentName={candidate.name} />
