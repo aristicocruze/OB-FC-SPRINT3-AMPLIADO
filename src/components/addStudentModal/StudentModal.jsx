@@ -11,10 +11,11 @@ function StudentModal({ handleClose, show }) {
   const [transfer, setTransfer] = useState("Si");
   const [attendance, setAttendance] = useState("Remoto");
   const [socialLink, setSocialLink] = useState("");
-  //const [picture, setPicture] = useState("");
-  const [file, setFile] = useState(null);
 
+  // picture & cv
+  const [file, setFile] = useState(null);
   const [cv, setCv] = useState("");
+
   const [technologies, setTechnologies] = useState([]);
   const [languages, setLanguages] = useState([]);
 
