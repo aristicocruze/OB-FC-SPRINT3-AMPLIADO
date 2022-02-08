@@ -109,7 +109,6 @@ function SingleStudent() {
               jobMode={candidate.attendance}
               status={candidate.employment}
               profilePic={`${PF}${candidate.picture}`}
-              editMode={editMode}
             />
             <div className={styles.upperBtns}>
               <div className="editBtn">

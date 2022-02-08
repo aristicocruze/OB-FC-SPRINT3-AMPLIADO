@@ -1,15 +1,6 @@
 import "./studentInformation.css";
 
-function StudentInformation({
-  name,
-  country,
-  jobMode,
-  status,
-  profilePic,
-  editMode,
-}) {
-  console.log(`Edit mode enable: ${editMode}`);
-
+function StudentInformation({ name, country, jobMode, status, profilePic }) {
   return (
     <div className="studentInformation">
       <div className="student-img">

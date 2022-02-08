@@ -14,7 +14,7 @@ function StudentModal({ handleClose, show }) {
 
   // picture & cv
   const [file, setFile] = useState(null);
-  const [cv, setCv] = useState("");
+  const [cv, setCv] = useState(null);
 
   const [technologies, setTechnologies] = useState([]);
   const [languages, setLanguages] = useState([]);
@@ -33,11 +33,11 @@ function StudentModal({ handleClose, show }) {
       transfer,
       attendance,
       socialLink,
-      cv,
       technologies,
       languages,
     };
 
+    // Upload profile picture.
     if (file) {
       const data = new FormData();
       const filename = Date.now() + file.name;
@@ -51,6 +51,21 @@ function StudentModal({ handleClose, show }) {
         console.log(err);
       }
     }
+    // Upload CV.
+    if (cv) {
+      const data = new FormData();
+      const filename = Date.now() + file.name;
+      data.append("name", filename);
+      data.append("file", cv);
+      newCandidate.cv = filename;
+      try {
+        const res = await axios.post("/upload", data);
+        console.log(` ${res.data}`);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+
     // publish.
     try {
       const res = await axios.post("/candidates", newCandidate);
@@ -61,6 +76,7 @@ function StudentModal({ handleClose, show }) {
     }
   };
 
+  // Validate if email is in use.
   const checkEmail = async e => {
     const emailToCheck = {
       email: emailRef.current.value,
@@ -75,6 +91,7 @@ function StudentModal({ handleClose, show }) {
       setIsEmailAvailable(false);
     }
   };
+
   return (
     <div
       className={
@@ -220,6 +237,7 @@ function StudentModal({ handleClose, show }) {
           </div>
 
           <div className={styles.modalRight}>
+            {/* Upload Profile Picture */}
             <label className={styles.formLabel} htmlFor="pictureInput">
               Foto de perfil
             </label>
@@ -247,11 +265,20 @@ function StudentModal({ handleClose, show }) {
                 />
               )}
             </div>
+            {/* Upload CV */}
             <label className={styles.formLabel}>Documento CV</label>
             <div className={styles.uploadPicContainer}>
               <button className={`${styles.basicBtn} ${styles.largeBtn}`}>
-                <i class="fas fa-cloud-upload-alt"></i>Subir documento PDF
+                <label htmlFor="cvInput">
+                  <i class="fas fa-cloud-upload-alt"></i>Subir documento PDF
+                </label>
               </button>
+              <input
+                type="file"
+                id="cvInput"
+                style={{ display: "none" }}
+                onChange={e => setCv(e.target.files[0])}
+              />
               <p>Archivos soportados: .pdf Tamaño de archivo máximo: 20 MB</p>
             </div>
             <label className={styles.formLabel}>Etiquetas</label>
