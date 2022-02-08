@@ -17,7 +17,7 @@ function DataTable() {
     const fetchCandidates = async () => {
       const res = await axios.get("/candidates");
       setData(res.data);
-      console.log(res.data);
+      //console.log(res.data);
     };
     fetchCandidates();
   }, [location]);
@@ -93,9 +93,9 @@ function DataTable() {
                 if (search === "") {
                   return val;
                 } else if (
-                  val.Nombre.toLowerCase().includes(search.toLowerCase()) ||
-                  val.Email.toLowerCase().includes(search.toLowerCase()) ||
-                  val.Etiquetas.toLowerCase().includes(search.toLowerCase())
+                  val.name.toLowerCase().includes(search.toLowerCase()) ||
+                  val.email.toLowerCase().includes(search.toLowerCase()) ||
+                  val.technologies.includes(search.toLowerCase())
                 ) {
                   return val;
                 }
